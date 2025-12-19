@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ page.title | escape }}</h1>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+    {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+   <p style="text-align:center">Copyright © 2024-2025, P. L. Chiu. All Rights Reserved.</p> 
+   <p style="text-align:center">v2.3.2</p> 
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>
