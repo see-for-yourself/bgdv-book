@@ -59,7 +59,7 @@ To make the image look nicer, we increase the number of steps by setting the ran
 
 Run the program and the resulting image is shown in Figure 1.2.
 
-![Figure 1.2](/bgdv-book/bgdv-book/assets/images/book/turtle_stairs_s12x2_rand-s21.png)  
+![Figure 1.2](/bgdv-book/assets/images/book/turtle_stairs_s12x2_rand-s21.png)  
 _Figure 1.2. Screenshot of a staircase random walk with 24 steps._
 
 ## 1.2 Example: Trajectory of Covid-19 Vaccinations and Cases
