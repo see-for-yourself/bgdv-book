@@ -59,7 +59,7 @@ To make the image look nicer, we increase the number of steps by setting the ran
 
 Run the program and the resulting image is shown in Figure 1.2.
 
-![Figure 1.2](/assets/images/book/turtle_stairs_s12x2_rand-s21.png)  
+![Figure 1.2](/bgdv-book/assets/images/book/turtle_stairs_s12x2_rand-s21.png)  
 _Figure 1.2. Screenshot of a staircase random walk with 24 steps._
 
 ## 1.2 Example: Trajectory of Covid-19 Vaccinations and Cases
@@ -200,4 +200,5 @@ Ex.1.1. Running the staircase random walk program in Chapter 1.1 will produce th
 Ex.1.2. For the trajectory of Covid-19 vaccinations and cases, use Python turtle to draw the visualization with the added lines that connect the points at the end of each month as in Figure 1.3 (bottom). _Hints_: The turtle functions `t.xcor()` and `t.ycor()` gets the current coordinates on the screen, and `t.goto(x, y)` moves to a specified point (x, y). The function `t.pencolor('red')` sets the pen color to red.
 
 *Ex.1.3. Notice that the trajectory of Covid-19 vaccinations and cases in Figure 1.3 (top) is basically a staircase visualization. It has 27 steps. In the previous section, we drew random staircases with 24 steps -- do these look like the Covid-19 trajectory?  Draw several more random staircases with 27 steps, and compare these to the Covid-19 visualization. To what degree do you believe that the Covid-19 trajectory looks like it comes from random data?
+
 
