@@ -21,7 +21,7 @@ An overview of the plotting process is as follows: The geospatial data points ca
 
 The Seven Summits are the highest mountain peaks on the seven continents. According to Wikipedia [3], under different definitions of "continent", there are 9 peaks altogether. In this section, we show how use GeoPandas to plot these 9 peaks over a world map and place text labels near them with their names (Figure 9.1).
 
-![Figure 9.1](/assets/images/book/SevenSummits-9_v03-b_crop.png)  
+![Figure 9.1](/bgdv-book/assets/images/book/SevenSummits-9_v03-b_crop.png)  
 _Figure 9.1. Seven Summits: 9 mountains from different definitions of the "seven continents". Data source: Wikipedia [3]._
 
 Along with the name of the mountains, Wikipedia also has their geographic coordinates. These data, with the coordinates rounded to 3 decimal places, can be put into a CSV file (SevenSummits-9.csv) which has the following content:
@@ -90,7 +90,7 @@ In the work of Horton et al., 2020 [4], weather surveillance radars over the con
 
 In this example, we will show how to use GeoPandas to plot the radar locations from the dataset over a map that is clipped to show only North America, and also to draw vertial lines denoting the flyway boundaries. See Figure 9.2.
 
-![Figure 9.2](/assets/images/book/plot_radars-flyways-over-map_lightgray-black_v02-a_crop.png)  
+![Figure 9.2](/bgdv-book/assets/images/book/plot_radars-flyways-over-map_lightgray-black_v02-a_crop.png)  
 _Figure 9.2. Weather surveillance radars used to detect bird migration activity over the U.S., along the Western, Central, and Eastern flyways. Data source: Horton et al. [4]._
 
 There are 143 radars used to record the spring and fall data. In the code below, we use Pandas to read in the CSV file for the spring data from the dataset [4], and drop the duplicate rows by keeping only the first row of each unique radar ID. As in the previous section, we construct a `geopandas.GeoDataFrame` object specifying the geometry as points with x and y coordinates from longitude and latitude columns, and the coordinate reference system (crs) as "EPSG:4326".
@@ -128,7 +128,7 @@ plt.axvline(x=-90, color='gray', alpha=0.5, linestyle='--')
 
 Before moving on to the topic of choropleth maps, we can also make plots of the peak migration temporal data to look at the trends. The data for the peak migration (day of year) is in the column 'q50', and the air surface temperature is in the column 'air.sfc.mean'. As we have done in previous chapters, we can calculate the 5-year moving averages and organize the plots in a grid as in Figure 9.3. We leave the details to the exercises. The plots indicate that over the 24 years of data from 1995 to 2018, the air surface temperature has increased, and the peak migration has come earlier in the year.
 
-![Figure 9.3](/assets/images/book/plot-2x2_years_peak_temp_cma-5_v03-a.png)  
+![Figure 9.3](/bgdv-book/assets/images/book/plot-2x2_years_peak_temp_cma-5_v03-a.png)  
 _Figure 9.3. Bird migration activity over the U.S. (5-year moving average). Data source: Horton et al. [2]._
 
 ## Exercises

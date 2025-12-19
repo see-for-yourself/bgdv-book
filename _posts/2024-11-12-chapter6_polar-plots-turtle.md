@@ -26,7 +26,7 @@ t.hideturtle()
 t.mainloop()
 ```
 
-![Figure 6.1](/assets/images/book/turtle_polarplot_circle_v01-a.png)  
+![Figure 6.1](/bgdv-book/assets/images/book/turtle_polarplot_circle_v01-a.png)  
 _Figure 6.1. A circle drawn with Turtle._
 
 When the dataset values correspond to points for the Turtle to move to, we can use absolute parameters by using Turtle's `goto(x, y)` function.  If these data points are modeled in polar coordinates, they would need to be converted into Cartesian coordinates. An example will be illustrated in the next section.
@@ -35,7 +35,7 @@ When the dataset values correspond to points for the Turtle to move to, we can u
 
 We had mentioned in Chapter 1 that we can use Python Turtle to draw Climate Spirals. The Climate Spiral was developed by Ed Hawkins to visualize global warming over time [1]. The original graphic is an animated image. Using Turtle, we can also create an animated visualization to show the trend of global warming in a dynamic manner. Fig. 6.2 shows the final state of the Turtle's path.
 
-![Figure 6.2](/assets/images/book/climate_spiral_turtle_1880-2020_v01-b_60-40_viridis.png)  
+![Figure 6.2](/bgdv-book/assets/images/book/climate_spiral_turtle_1880-2020_v01-b_60-40_viridis.png)  
 _Figure 6.2. A Climate Spiral draw with Turtle, at the completion state. Data from 1880 to 2020 [2]._
 
 The code for using Turtle to draw a Climate Spiral is below. The data is from NASA GISTEMP [2], and as we did in in Chapter 3, we read its CSV file into a Pandas DataFrame and select the data for the years 1880-2020. We will represent the data in polar coordinates (r, theta) so that r is the temperature anomaly and theta is the angle position of the month.

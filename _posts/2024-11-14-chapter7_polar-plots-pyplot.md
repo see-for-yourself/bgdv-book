@@ -33,7 +33,7 @@ ax.plot(angles, radii, color='black')
 plt.show()
 ```
 
-![Figure 7.1](/assets/images/book/fermat_spiral_turns-3_v01-b_dpi-75.png)  
+![Figure 7.1](/bgdv-book/assets/images/book/fermat_spiral_turns-3_v01-b_dpi-75.png)  
 _Figure 7.1. Fermat spiral._
 
 ## 7.2 Example: Climate Spirals Redux
@@ -42,7 +42,7 @@ In the previous chapter, we demonstrated how to use Turtle to draw Climate Spira
 
 To use Pyplot to make a polar plot of a Climate Spiral, we can use Pyplot's polar projection. It can provide a polar coordinates grid with labels, so that the months and the radii of the plotted values can be read off by the user. The resulting plot is shown in Fig. 7.2.
 
-![Figure 7.2](/assets/images/book/climate_spiral_1880-2020_v01-e_viridis_dpi-75.png)  
+![Figure 7.2](/bgdv-book/assets/images/book/climate_spiral_1880-2020_v01-e_viridis_dpi-75.png)  
 _Figure 7.2. A Climate Spiral made with Pyplot, for data from 1880 to 2020. Data source: NASA GISTEMP [4]._
 
 The code is similar to the Turtle code in the previous chapter, with a few minor modifications. Taking that code, add above the for loop:
@@ -79,7 +79,7 @@ Finally, remove the code that calls the Turtle functions, and remove the functio
 
 In Chapter 5, we had aggregated the CSSE Covid-19 data and grouped them into years and months, calculated the monthly means, and saved the data to a CSV file. We had plotted the monthly means in Cartesian coordinates (Figure 5.4). In that plot, it is not so easy to see the seasonal patterns. Here, we make a polar plot that reveals the seasonal patterns more clearly. See Figure 7.3. The plot shows that during the winter months of December to February in the US, the Covid-19 deaths spike up. It also shows the progression of the pandemic as it winds up and down during the three years of the pandemic.
 
-![Figure 7.3](/assets/images/book/polar-plot_US_pointvals_monthly-mean_deaths.png)  
+![Figure 7.3](/bgdv-book/assets/images/book/polar-plot_US_pointvals_monthly-mean_deaths.png)  
 _Figure 7.3. A polar plot of Covid-19 monthly mean deaths. Data source: Johns Hopkins CSSE [5]._
 
 Since our saved data file (US_pointvals_monthly-mean.csv) had been made so that it has the same structure as the NASA GISTEMP climate data file (GLB.Ts+dSST.csv), it is straightforward to modify the code above for plotting the climate data in polar coordinates to plot the Covid-19 data. We leave the details to Exercise 7.1.
@@ -92,7 +92,7 @@ As an example, we show how transforming the Covid-19 cases data can improve the 
 
 Making these polar plots with transformed values for the Covid-19 cases is similar to making the above polar plot for the deaths. Judicious placement of the grid lines helps to convey the non-linear scale. This is done manually by choosing the tick values, and their tick label placements should also try to avoid overlapping with the graph. The tranformation function is applied on the tick values before setting them with `ax.set_rticks()`. The reader is encouraged to make these plots and try other transformation functions (Exercise 7.3).
 
-![Figure 7.4](/assets/images/book/polar-plot_US_pointvals_monthly-mean_cases_transform-1x3_800x350.png)  
+![Figure 7.4](/bgdv-book/assets/images/book/polar-plot_US_pointvals_monthly-mean_cases_transform-1x3_800x350.png)  
 _Figure 7.4. Different data transformations. Data source: Johns Hopkins CSSE [4]._
 
 ---

@@ -34,7 +34,7 @@ To run this code, you need to have Python installed on your computer. See Append
 
 This program draws a "staircase" figure with 12 steps by using the turtle commands to move forward by 10 units, and to turn left and right by 90 degrees. When the program is run, the drawing of the steps will be animated. The resulting image is shown in Figure 1.1.
 
-![Figure 1.1](../assets/images/book/turtle_stairs_s12.png)  
+![Figure 1.1](/bgdv-book/assets/images/book/turtle_stairs_s12.png)  
 _Figure 1.1. Screenshot of the finished state of our simple turtle program._
 
 For data visualization, we obviously need data. One way to get data is to randomly generated it. Random data is very useful: It can be used for testing, benchmarking, performing experiments, checking statistical models, etc. In Python, the `random` module has functions to generate pseudo-random numbers. In particular, the function `random()` returns a number between 0 and 1 (inclusive of 0.0, exclusive of 1.0).
@@ -59,7 +59,7 @@ To make the image look nicer, we increase the number of steps by setting the ran
 
 Run the program and the resulting image is shown in Figure 1.2.
 
-![Figure 1.2](/bgdv-book/assets/images/book/turtle_stairs_s12x2_rand-s21.png)  
+![Figure 1.2](/bgdv-book/bgdv-book/assets/images/book/turtle_stairs_s12x2_rand-s21.png)  
 _Figure 1.2. Screenshot of a staircase random walk with 24 steps._
 
 ## 1.2 Example: Trajectory of Covid-19 Vaccinations and Cases
@@ -70,8 +70,8 @@ For the Covid-19 pandemic, there is a public dataset created by Johns Hopkins Un
 
 We can use Python turtle to sketch a trajectory of the monthly vaccinations and cases. For each successive month, we move the turtle horizontally by the number of vaccinations and vertically by the number of cases. When the program is run, the movement of the trajectory is animated. The resulting image is shown in Figure 1.3 (top).
 
-![Figure 1.3](/assets/images/book/csse_us_turtle_vax1_cases_600x320_black_v02-b_crp.png)  
-![Figure 1.3](/assets/images/book/csse_us_turtle_vax1_cases_slopes_600x320_black_v02-b_crp.png)  
+![Figure 1.3](/bgdv-book/assets/images/book/csse_us_turtle_vax1_cases_600x320_black_v02-b_crp.png)  
+![Figure 1.3](/bgdv-book/assets/images/book/csse_us_turtle_vax1_cases_slopes_600x320_black_v02-b_crp.png)  
 _Figure 1.3. Trajectory of Covid-19 vaccinations and cases in the US for each month (2020-12 to 2023-02). Data Source: Johns Hopkins Univeristy [3]. Top: Horizontal segments represent the number of vaccinated people and vertical segments the number of cases. Bottom: Red segments connect the points at the end of each month._
 
 The code including the data for making this visualization is as follows:
@@ -115,7 +115,7 @@ To raise awareness about climate change, compelling data visualizations have bee
 
 We can use Python turtle graphics to draw Climate Stripes and Climate Spirals. Figure 1.4 shows a Climate Stripes visualization drawn with turtle using the code below. The result looks similar to the Climate Stripes in [5]. Climate Spirals will be covered in a later chapter on radial plots.
 
-![Figure 1.4](/assets/images/book/climate-stripes_wl-2x80_cmap-RdBu_v01-c_crop.png)  
+![Figure 1.4](/bgdv-book/assets/images/book/climate-stripes_wl-2x80_cmap-RdBu_v01-c_crop.png)  
 _Figure 1.4. Climate Stripes from 1880 to 2020, rendered with a diverging blue-red color mapping. Data Source: NASA GISTEMP  [7]._
 
 First, we need to get the climate data. One source is NASA GISTEMP [7]. This has Global Land-Ocean Temperature data. Specifically, we want the data for the combined land-surface air and sea-surface water temperature anomalies. The _temperature anomaly_ is defined as the temperature difference from a baseline period in degrees Celsius. We will visualize the data for the annual mean temperature anomalies for the years from 1880 to 2020. In the GISTEMP data, the baseline period is 1951-1980.

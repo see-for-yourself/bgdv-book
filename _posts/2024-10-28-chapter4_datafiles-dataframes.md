@@ -119,7 +119,7 @@ plt.tight_layout()  # adjust spacing
 plt.show()
 ```
 
-![Figure 4.1](/assets/images/book/plot-4x3_temp_anoms_v01-b.png)  
+![Figure 4.1](/bgdv-book/assets/images/book/plot-4x3_temp_anoms_v01-b.png)  
 _Figure 4.1. Small multiple of temperature anomalies for each month from 1880 to 2020._
 
 ---

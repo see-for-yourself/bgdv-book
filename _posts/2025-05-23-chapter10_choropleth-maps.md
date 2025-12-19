@@ -60,9 +60,9 @@ ax.set_axis_off()
 plt.show()
 ```
 
-![Figure 10.1a](/assets/images/book/us-states_population_cmap-greys_v01-e_crop.png)  
+![Figure 10.1a](/bgdv-book/assets/images/book/us-states_population_cmap-greys_v01-e_crop.png)  
 
-![Figure 10.1b](/assets/images/book/us-states_pop-density_cmap-greys_v01-e_crop.png)  
+![Figure 10.1b](/bgdv-book/assets/images/book/us-states_pop-density_cmap-greys_v01-e_crop.png)  
 _Figure 10.1. Population and population density of the U.S. states (2019). Data source: U.S. Census Bureau [1]._
 
 To make the **population density** choropleth map (Figure 10.1-bottom), only a minor modification is needed. The cartographic boundary file (cb_2018_us_state_20m.shp) also contains the land area for each state under the column "ALAND". This is in square meters, which we can convert to square miles by dividing by 2.59e6. The population density of a state is defined as its population divided by its land area. Doing this calculation and adding a new column "pop_density" to the GeoPandas data frame `states` can be done in one line of code:
@@ -107,7 +107,7 @@ states.plot(
 
 The resulting image is shown in Figure 10.2. We can see the small northeast states such as Rhode Island much better compared to the simple map (Figure 10.1-bottom).
 
-![Figure 10.2](/assets/images/book/us-states_pop-density_cmap-greys_clip_cutout_v02-e_crop.png)  
+![Figure 10.2](/bgdv-book/assets/images/book/us-states_pop-density_cmap-greys_clip_cutout_v02-e_crop.png)  
 _Figure 10.2. A focus-plus-context plot of the population density of the U.S. states (2019). Data source: U.S. Census Bureau [1]._
 
 ## Exercises

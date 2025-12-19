@@ -21,7 +21,7 @@ The naive method of mapping data values to the grayscale values (or color values
 
 We can compare a linear RGB mapping to a perceptally uniform grayscale sequential mapping by looking at them next to each other. See Figure 3.1. There is a slight but noticeable difference: the perceptual scale appears less dark on the left half and more balanced overall.
 
-![Figure 3.1](/assets/images/book/grayscale-stripes_wl-2x20_v02-c_crp.png)  
+![Figure 3.1](/bgdv-book/assets/images/book/grayscale-stripes_wl-2x20_v02-c_crp.png)  
 _Figure 3.1. Grayscale mappings over the interval [0.0, 1.0]. Top: Linear in RGB. Bottom: Sequential colormap ('Greys')._
 
 With Python, there are various ways to specify a _color_ or to choose a _colormap_ [3]. A color can be specified by an RGB value or by a name. Colormaps provide a mapping from the data values to the color values, and a number of well-desgined grayscale and color mappings are available in the Matplotlib library. For a listing of the available colormaps, see [3].
@@ -40,16 +40,16 @@ specifies by name the 'RdBu' colormap. The resulting image from Chapter 1.3 is r
   
 Another popular choice for data visualization is the 'Viridis' colormap (Figure 3.2 middle); it is a perceptually uniform sequential colormap. For a grayscale Cimate Stripes, a perceptually uniform grayscale 'Greys' colormap is used in Figure 3.2 bottom. Studies have shown that sequential grayscale is better than sequential color in terms of accurate visual perception [1], although some might find it aesthetically less pleasing.
 
-![Figure 3.2a](/assets/images/book/climate-stripes_wl-2x80_cmap-RdBu_v01-c_crop.png)  
-![Figure 3.2b](/assets/images/book/climate-stripes_wl-2x80_cmap-viridis_v01-d_crop.png)  
-![Figure 3.2c](/assets/images/book/climate-stripes_wl-2x80_greys_v01-c_crop.png)  
+![Figure 3.2a](/bgdv-book/assets/images/book/climate-stripes_wl-2x80_cmap-RdBu_v01-c_crop.png)  
+![Figure 3.2b](/bgdv-book/assets/images/book/climate-stripes_wl-2x80_cmap-viridis_v01-d_crop.png)  
+![Figure 3.2c](/bgdv-book/assets/images/book/climate-stripes_wl-2x80_greys_v01-c_crop.png)  
 _Figure 3.2. Climate stripes with different colormaps. Top: Diverging ('RdBu', reversed). Middle: Perceptually Uniform Sequential ('Viridis'). Bottom: Sequential ('Greys')._
 
 ## 3.3 Transparency and Alpha Channel
 
 Applying transparency enables layering and helps deal with occlusions in visualizations. As an example, look at the two scatter plots of random points without and with transparency in Figure 3.3. Without transparency, overlapping points can turn into blobs that makes it harder to see the individual points. Transparency can also reveal points that are directly on top of one another. If you look carefully at the right plot in Figure 3.3, you can see that the point at (28, 17) is darker, which is caused by layering two transparent points with the same coordinates.
 
-![Figure 3.3](/assets/images/book/transparency_alpha-0.50_v01-a_crop.png)  
+![Figure 3.3](/bgdv-book/assets/images/book/transparency_alpha-0.50_v01-a_crop.png)  
 _Figure 3.3. Random points. Left: Gray. Right: Gray with alpha = 0.5._
 
 The _alpha channel_ controls the transparency. For the RGB color model, the alpha channel is a fourth component that extends it to the RGBA model. Transparency is supported in Pyplot, but not currently in Turtle.
@@ -83,7 +83,7 @@ For visualizing groups or categories of data points, different marker shapes or 
 
 One issue is that the groups should have a similar level of saliency, unless you intend to highlight a specific group. For the shapes in Figure 3.4 left, the circles and polygons have similar saliency, while the X-shaped markers pop out. For the colors in Figure 3.4 right, the colors (blue, orange, green) from a colormap designed for categorical data have similar saliency, while the cyan color markers pop out.
 
-![Figure 3.4](/assets/images/book/marker-types_color_v04-a_crop.png)  
+![Figure 3.4](/bgdv-book/assets/images/book/marker-types_color_v04-a_crop.png)  
 _Figure 3.4. Visualing 4 groups. Left: Different shapes in gray. Right: Different colors._
 
 The code for Figure 3.4 is below. For the left plot, the shapes are specified by the line `marker_types`, and all markers are gray. There are other marker types available in Matplotlib; see [2]. For the right plot, the colors are specified by the line `colors`, and all the shapes are the same. The color prefix "tab:" stands for the Tableau Colors scheme (T10). For more details about specifying colors and about other colormaps schemes for categorical data, see [3].
@@ -130,12 +130,12 @@ Figure 3.5 is a scatter plot that shows the top 1% of the days with precipitatio
 
 Looking closer at Figure 3.5, the day with the second highest rainfall (its month is March when it rains only a little) has a much larger marker size than the day with the highest rainfall (its month is September when it rains a lot). Another interesting point is the highest downward pointing triangle at 1994-09-13. It has over 6 inches of rain -- this is a lot of rain in a single day! However, by the benchmark, it is not considered to be an extreme event. These and other similar points in the visualization show clearly that a day with a large amount of rain may not be as extreme as a day with less rain when they occur in differnet seasons.
 
-![Figure 3.5](/assets/images/book/plot_Bangalore_1901-2020_top_prcp_extreme-markers_alpha-0.25_gray_6x3_v03-a.png)  
+![Figure 3.5](/bgdv-book/assets/images/book/plot_Bangalore_1901-2020_top_prcp_extreme-markers_alpha-0.25_gray_6x3_v03-a.png)  
 _Figure 3.5. The size of a point is proportional to the average rainfall of its month. The upward pointing triangular markers means that they are extreme by the benchmark above. The markers are gray with alpha = 0.25. Data source: NOAA [7]_
 
 Another view to delineate the extreme from non-extreme events can be created by plotting the ratio of a point's rainfall to its month's average rainfall. See Figure 3.6. If the ratio is greater than 1, it is an extreme event by the benchmark above. Using a log scale on the y-axis provides better spacing for the points below 1 and makes the visualization more legible. Using transparent points also works well here in terms of aesthetics as they are delightfully evocative of rain drops.
 
-![Figure 3.6](/assets/images/book/plot_Bangalore_1901-2020_top_extreme_prcp_alpha-0.25_gray_6x3_log-scale_v03-b.png)  
+![Figure 3.6](/bgdv-book/assets/images/book/plot_Bangalore_1901-2020_top_extreme_prcp_alpha-0.25_gray_6x3_log-scale_v03-b.png)  
 _Figure 3.6. The size of a point is proportional to its amount of rainfall. The markers are gray with alpha = 0.25. The y-axis is in log scale. Data source: NOAA [7]_
 
 In order to create the visualizations in this example, we need to learn how to load datasets into our programs and manipulate the data for plotting. We will cover these topics in the next couple of chapters.

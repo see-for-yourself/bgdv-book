@@ -34,7 +34,7 @@ plt.ylabel('Temp Anomaly (Celsius)')
 plt.show()
 ```
 
-![Figure 2.1](/assets/images/book/temp_anoms_v01-a_BW.png)  
+![Figure 2.1](/bgdv-book/assets/images/book/temp_anoms_v01-a_BW.png)  
 _Figure 2.1. Plot of global temperature anomalies from 1880 to 2020. Data Source: NASA GISTEMP (Chapter 1 [7])._
 
 ## 2.2 Smoothing Data
@@ -64,7 +64,7 @@ Finally, add the line of code below to the code in Section 2.1, right below the 
 y = central_moving_average(y, window=5)
 ```
 
-![Figure 2.2](/assets/images/book/temp_anoms_cma-5_expand_v01-b_BW.png)  
+![Figure 2.2](/bgdv-book/assets/images/book/temp_anoms_cma-5_expand_v01-b_BW.png)  
 _Figure 2.2. Plot of global temperature anomalies from 1880 to 2020, smoothed using a central moving average with window length 5._
 
 ## 2.3 Example: Plot CO2 Data
@@ -101,7 +101,7 @@ plt.plot(years_law, co2_vals_law, color='gray', linestyle='dotted')
 plt.plot(years_gml, co2_vals_gml, color='gray', linestyle='dashed')
 ```
 
-![Figure 2.3](/assets/images/book/CO2_law-gml_v02-a_BW.png)  
+![Figure 2.3](/bgdv-book/assets/images/book/CO2_law-gml_v02-a_BW.png)  
 _Figure 2.3. Plot of CO2 from 1880 to 2020. Lawdome data is shown by the dotted line, GML data by the dashed line._
 
 ## 2.4 Multiple Plots in a Figure
@@ -132,7 +132,7 @@ We can visually compare the trends in temperature anomaly and in CO2 by looking 
     plt.show()
 ```
 
-![Figure 2.4](/assets/images/book/plot-2x1_temp-anoms_CO2_law-gml_v02-a_BW.png)  
+![Figure 2.4](/bgdv-book/assets/images/book/plot-2x1_temp-anoms_CO2_law-gml_v02-a_BW.png)  
 _Figure 2.4. A single figure containing multiple subplots._
 
 ---

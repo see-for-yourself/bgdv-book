@@ -10,7 +10,7 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 A very effective visualization design is using _focus-plus-context_ to show a zoomed-in focus region that is connected to a context region. As an example, Figure 7.1 shows a visualization of the NASA GISTEMP temperature anomaly data with a focus region on a part of the time interval. In this chapter, we show how to use Pyplot to make composite plots with subplots that are connected together to construct a focus-plus-context plot. Then we apply this to an example with climate data to create the image in Figure 7.1. After that, we consider a more complex example with a Koch Snowflake, which uses Turtle to generate the Koch Snowflake data.
 
-![Figure 8.1](/assets/images/book/cutout-plot_mosaic_1933-1967_temp_anoms_v03-a_dpi-75.png)  
+![Figure 8.1](/bgdv-book/assets/images/book/cutout-plot_mosaic_1933-1967_temp_anoms_v03-a_dpi-75.png)  
 _Figure 8.1. Temperate anomaly (Celcius) with focus region from 1933-1967 and context region from 1880-2020. Data source: NASA GISTEMP [1]._
 
 ## 8.1 Constructing a Focus-plus-Context Visualization with Pyplot
@@ -34,13 +34,13 @@ plt.tight_layout()
 plt.show()
 ```
 
-![Figure 8.2](/assets/images/book/step1_create_mosaic_layout_0.4-0.6_v03-a_dpi-75.png)  
+![Figure 8.2](/bgdv-book/assets/images/book/step1_create_mosaic_layout_0.4-0.6_v03-a_dpi-75.png)  
 _Figure 8.2. Creating a mosaic layout._
 
 The next step is to draw the connecting lines between the focus region 'A' and the context region 'B' as shown in Figure 8.3-left:
 
-![Figure 8.3a](/assets/images/book/step2_mosaic_draw_connecting_lines_0.4-0.6_v03-a_dpi-50.png)
-![Figure 8.3b](/assets/images/book/step3_mosaic_fill_patch_0.4-0.6_v03-a_dpi-50.png)  
+![Figure 8.3a](/bgdv-book/assets/images/book/step2_mosaic_draw_connecting_lines_0.4-0.6_v03-a_dpi-50.png)
+![Figure 8.3b](/bgdv-book/assets/images/book/step3_mosaic_fill_patch_0.4-0.6_v03-a_dpi-50.png)  
 _Figure 8.3. Left: Drawing the connecting lines. Right: Filling in the focus region._
 
 First, we write a function that draws a single connecting line between two subplots in a figure specified by the two subplot axes and the two end points. It uses a `ConnectionPatch` object, with the `coordsA` and `coordsB` parameters specifying the use of data units with the coordinate systems. We also specify using a gray dotted line of width 1.
@@ -150,7 +150,7 @@ The Koch Snowflake is an interesting mathematical object that has a resemblance 
 
 There is no simple formula to define a Koch Snowflake; however, it is easy to construct via an iterative algorithmic procedure. This can be done using Turtle, and a screenshot of a drawing with five iterations in shown in Figure 8.4.
 
-![Figure 8.4](/assets/images/book/KochSnowflake_len-243_iter-5_v02-b_300x315.png)  
+![Figure 8.4](/bgdv-book/assets/images/book/KochSnowflake_len-243_iter-5_v02-b_300x315.png)  
 _Figure 8.4. A Koch Snowflake drawn with Turtle (iterations = 5)._
 
 The code for constructing a Koch Snowflake is below. The number of iterations and the length determining the distances of the Turtle's steps are parameters that can be specified. At each step of the Turtle's traversal, we save the position's coordinates (x, y), and the resulting list contains the data for a Koch Snowflake.
@@ -190,7 +190,7 @@ fig, axes = plt.subplot_mosaic('AAAAA;.BBB.;.BBB.', figsize=(6, 4.5))
 
 The rest of the code is similar to the example with the Climate Data in the previous section, which we leave to the exercises.
 
-![Figure 8.5](/assets/images/book/cutout-plot_koch-snowflake_len-243_iter-5_v01-b.png)  
+![Figure 8.5](/bgdv-book/assets/images/book/cutout-plot_koch-snowflake_len-243_iter-5_v01-b.png)  
 _Figure 8.5. Koch Snowflake and a piece of the Koch function._
 
 The Koch Snowflake fractal provides an example of data that has detail at multiple resolutions. Geographic maps are another kind of shapes with fractal-like properties that can benefit from focus-plus-context visualization. We will cover geospatial visualization in the next two chapters, and one of the examples will be a focus-plus-context example with geographic data.

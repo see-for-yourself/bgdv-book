@@ -84,7 +84,7 @@ df['deaths'] = series
 df.to_csv('US_replace-bad-vals_interpolate.csv', index=False)  
 ```
 
-![Figure 5.1](/assets/images/book/US_plot_2x1_bad_interpolated_2022-06-30_v01-b.png)  
+![Figure 5.1](/bgdv-book/assets/images/book/US_plot_2x1_bad_interpolated_2022-06-30_v01-b.png)  
 _Figure 5.1. Neighborhood around the bad value at 2022-06-30. Top: original data. Bottom: interpolated after removing the bad value._
 
 Next, we compute the point values from the cumulative values. The Pandas `diff()` function calculates the difference between elements, with the default using the elements in the previous row. The first row has no previous row, and first point value is set to NaN.
@@ -110,10 +110,10 @@ plt.plot(x, y, color='lightgray')
 plt.plot(x, central_moving_average(y, window=7), color='black')
 ```
 
-![Figure 5.2](/assets/images/book/US_replace-bad-vals_interpolate_plot.png)  
+![Figure 5.2](/bgdv-book/assets/images/book/US_replace-bad-vals_interpolate_plot.png)  
 _Figure 5.2. Cumulative values._
 
-![Figure 5.3](/assets/images/book/US_replace-bad-vals_interpolate_pointvals_plot_smooth.png)  
+![Figure 5.3](/bgdv-book/assets/images/book/US_replace-bad-vals_interpolate_pointvals_plot_smooth.png)  
 _Figure 5.3. Point values in light gray, and the 7-day central moving average in black._
 
 ## 5.3 Aggregating Data
@@ -193,7 +193,7 @@ We can plot the monthly mean values, using round dots to emphasize the discreten
 
 Note that this plot looks very similar to the plot of the 7-day central moving average in Figure 5.3. The main difference between smoothing with a central moving average and aggregating into months along with calculating their means is that the averages are calculated in the former case over a sliding window and in the latter case over disjoint groups (or "windows").
 
-![Figure 5.4](/assets/images/book/US_plot_pointvals_monthly-mean_deaths_v01-b.png)  
+![Figure 5.4](/bgdv-book/assets/images/book/US_plot_pointvals_monthly-mean_deaths_v01-b.png)  
 _Figure 5.4. Monthly mean values._
 
 ---
