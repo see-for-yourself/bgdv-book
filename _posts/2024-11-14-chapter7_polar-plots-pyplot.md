@@ -7,7 +7,7 @@ TOC_order: 7
 copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 ---
 
-In this chapter, we show how to make polar plots with Pyplot. Continuing with the example of Climate Sprials from the previous chapter, we show how to do it with Pyplot by making minor modifications to the Turtle code. We present another interesting example with the Covid-19 data to visualize seasonal patterns.
+In this chapter, we show how to make polar plots with Pyplot. Continuing with the example of Climate Spirals from the previous chapter, we show how to do it with Pyplot by making minor modifications to the Turtle code. We present another interesting example with the Covid-19 data to visualize seasonal patterns.
 
 ## 7.1 Polar Coordinates in Pyplot
 
@@ -90,7 +90,7 @@ Transforming data is an important process in data visualization and data science
 
 As an example, we show how transforming the Covid-19 cases data can improve the visualization. Figure 7.4 shows the polar plots for linear, square root, and log (base 10) functions applied to the radial values. The graph is more legible in the square root plot than the other two, with the values less compressed together in the radial direction.
 
-Making these polar plots with transformed values for the Covid-19 cases is similar to making the above polar plot for the deaths. Judicious placement of the grid lines helps to convey the non-linear scale. This is done manually by choosing the tick values, and their tick label placements should also try to avoid overlapping with the graph. The tranformation function is applied on the tick values before setting them with `ax.set_rticks()`. The reader is encouraged to make these plots and try other transformation functions (Exercise 7.3).
+Making these polar plots with transformed values for the Covid-19 cases is similar to making the above polar plot for the deaths. Judicious placement of the grid lines helps to convey the non-linear scale. This is done manually by choosing the tick values, and their tick label placements should also try to avoid overlapping with the graph. The transformation function is applied on the tick values before setting them with `ax.set_rticks()`. The reader is encouraged to make these plots and try other transformation functions (Exercise 7.3).
 
 ![Figure 7.4](/bgdv-book/assets/images/book/polar-plot_US_pointvals_monthly-mean_cases_transform-1x3_800x350.png)  
 _Figure 7.4. Different data transformations. Data source: Johns Hopkins CSSE [4]._
@@ -99,9 +99,9 @@ _Figure 7.4. Different data transformations. Data source: Johns Hopkins CSSE [4]
 
 ## Exercises
 
-Ex.7.1. Create Figure 7.3. Modify the code in Chapter 5 to read in our data file with the Covid-19 monthly mean values (US_pointvals_monthly-mean.csv), and modify the code in this chapter to plot that data in polar coordinates. Also, use a sequential grayscale colormap 'Greys' instead of 'viridis' which does not look as good for this visualzation.
+Ex.7.1. Create Figure 7.3. Modify the code in Chapter 5 to read in our data file with the Covid-19 monthly mean values (US_pointvals_monthly-mean.csv), and modify the code in this chapter to plot that data in polar coordinates. Also, use a sequential grayscale colormap 'Greys' instead of 'viridis' which does not look as good for this visualization.
 
-Ex.7.2. From the CSSE Covid-19 dataset, select a country from the southern hemispherea and make a polar plot as in Figure 7.3. Compare it to the plot of the US, which is country in the northern hemisphere with different months for the seasons.
+Ex.7.2. From the CSSE Covid-19 dataset, select a country from the southern hemisphere and make a polar plot as in Figure 7.3. Compare it to the plot of the US, which is country in the northern hemisphere with different months for the seasons.
 
 Ex.7.3. Make a polar plot with transformed values for Covid-19 cases, using square root function. Try using a natural logarithm transformation function (`log(x)`) and compare it to the plot in Figure 7.4 with the logarithm base 10 (`log10(x)`); which is more human-readable in terms of the grid lines and grid labels?
 

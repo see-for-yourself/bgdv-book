@@ -11,7 +11,7 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 [1] "Turtle graphics". Python Documentation. <https://docs.python.org/3.7/library/turtle.html>
 
-[2] Seymour Papert. (1980, 2020). _Mindstorms: Children, Computers and Powerful Ideas_. The 2020 edition has a foreward by Mitchel Resnick, the founder of the Scratch programming language.
+[2] Seymour Papert. (1980, 2020). _Mindstorms: Children, Computers and Powerful Ideas_. The 2020 edition has a foreword by Mitchel Resnick, the founder of the Scratch programming language.
 
 [3] Johns Hopkins Center for Systems Science and Engineering (CSSE). Covid-19 datasets: <https://coronavirus.jhu.edu/about/how-to-use-our-data>
 
@@ -35,13 +35,13 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 ## Chapter 3: Grayscale, Colormaps, Transparency
 
-[1] Some references are: C. Ware. Information Visualization: Perception for Desgin. (2004, 2nd ed.); K. Healy. Data Visualization: A Practical Introduction (2018); or T. Munzner. Visualization Analysis and Design (2014).
+[1] Some references are: C. Ware. Information Visualization: Perception for Design. (2004, 2nd ed.); K. Healy. Data Visualization: A Practical Introduction (2018); or T. Munzner. Visualization Analysis and Design (2014).
 
 [2] Matplotlib: Markers. <https://matplotlib.org/stable/api/markers_api.html>
 
 [3] Matplotlib: Specifying colors <https://matplotlib.org/stable/users/explain/colors/colors.html>, Colormaps <https://matplotlib.org/stable/users/explain/colors/colormaps.html>.
 
-[4] C. Ware. Information Visualization: Perception for Desgin. (2004, 2nd ed.).
+[4] C. Ware. Information Visualization: Perception for Design. (2004, 2nd ed.).
 
 [5] Matplotlib: Color vision deficiencies. <https://matplotlib.org/stable/users/explain/colors/colormaps.html#color-vision-deficiencies>
 

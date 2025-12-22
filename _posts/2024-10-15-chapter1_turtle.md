@@ -7,7 +7,7 @@ TOC_order: 1
 copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 ---
 
-A great place to begin learning about graphics and visualizatin is with _turtles_. Turtle graphics is a popular tool for computer education used in programming languages such as Scratch. It was developed as part of the Logo programming language in the 1960s by Wally Feurzeig, Seymour Papert and Cynthia Solomon [1, 2]. In Python, turtle graphics is included and there is no need to install extra libraries.
+A great place to begin learning about graphics and visualization is with _turtles_. Turtle graphics is a popular tool for computer education used in programming languages such as Scratch. It was developed as part of the Logo programming language in the 1960s by Wally Feurzeig, Seymour Papert and Cynthia Solomon [1, 2]. In Python, turtle graphics is included and there is no need to install extra libraries.
 
 Drawing with a turtle is accomplished by giving it a sequence of steps specifying how far to move and how much to turn. When the program is run, the movements are animated. The process is like moving a pen around on a sheet of paper. It is highly intuitive and easy to use, yet it can draw quite sophisticated images.
 
@@ -39,7 +39,7 @@ _Figure 1.1. Screenshot of the finished state of our simple turtle program._
 
 For data visualization, we obviously need data. One way to get data is to randomly generated it. Random data is very useful: It can be used for testing, benchmarking, performing experiments, checking statistical models, etc. In Python, the `random` module has functions to generate pseudo-random numbers. In particular, the function `random()` returns a number between 0 and 1 (inclusive of 0.0, exclusive of 1.0).
 
-We can modified our program to draw a "staircase random walk" with random lengths for the steps. First, we add a line of code to import the `random` module, and we set the seed to a fixed number to produce the same results every time the program is run:
+We can modify our program to draw a "staircase random walk" with random lengths for the steps. First, we add a line of code to import the `random` module, and we set the seed to a fixed number to produce the same results every time the program is run:
 
 ```python
 import turtle as t
@@ -66,13 +66,13 @@ _Figure 1.2. Screenshot of a staircase random walk with 24 steps._
 
 Now let's look at some real data.
 
-For the Covid-19 pandemic, there is a public dataset created by Johns Hopkins Univeristy (JHU) [3]. From cumulative data values at the end of each month, we can extract the monthly number of vaccinated people (with at least one dose) and the monthly number of cases. The data for vaccination began in December 2020, and the JHU dataset has month-end data up to February 2023. The World Health Organization (WHO) declared the end of COVID-19 as a global health emergency in May 2023 [4].
+For the Covid-19 pandemic, there is a public dataset created by Johns Hopkins University (JHU) [3]. From cumulative data values at the end of each month, we can extract the monthly number of vaccinated people (with at least one dose) and the monthly number of cases. The data for vaccination began in December 2020, and the JHU dataset has month-end data up to February 2023. The World Health Organization (WHO) declared the end of COVID-19 as a global health emergency in May 2023 [4].
 
 We can use Python turtle to sketch a trajectory of the monthly vaccinations and cases. For each successive month, we move the turtle horizontally by the number of vaccinations and vertically by the number of cases. When the program is run, the movement of the trajectory is animated. The resulting image is shown in Figure 1.3 (top).
 
 ![Figure 1.3](/bgdv-book/assets/images/book/csse_us_turtle_vax1_cases_600x320_black_v02-b_crp.png)  
 ![Figure 1.3](/bgdv-book/assets/images/book/csse_us_turtle_vax1_cases_slopes_600x320_black_v02-b_crp.png)  
-_Figure 1.3. Trajectory of Covid-19 vaccinations and cases in the US for each month (2020-12 to 2023-02). Data Source: Johns Hopkins Univeristy [3]. Top: Horizontal segments represent the number of vaccinated people and vertical segments the number of cases. Bottom: Red segments connect the points at the end of each month._
+_Figure 1.3. Trajectory of Covid-19 vaccinations and cases in the US for each month (2020-12 to 2023-02). Data Source: Johns Hopkins University [3]. Top: Horizontal segments represent the number of vaccinated people and vertical segments the number of cases. Bottom: Red segments connect the points at the end of each month._
 
 The code including the data for making this visualization is as follows:
 
@@ -105,22 +105,22 @@ t.hideturtle()
 t.mainloop()
 ```
 
-In order to make enough space on the turtle screen to fit all the drawing steps, we set the turtle screen's width and height at the top of the program. The `teleport()` function is used to move the starting point to some distance on the lower left of the screen. Depending on your computer, these parameters can be adjusted to fit the visualizaton inside the turtle screen.
+To make enough space on the turtle screen to fit all the drawing steps, we set the turtle screen's width and height at the top of the program. The `teleport()` function is used to move the starting point to some distance on the lower left of the screen. Depending on your computer, these parameters can be adjusted to fit the visualization inside the turtle screen.
 
-One enhancement is to add a trajectory line that connects the points at the end of each month (see Figure 1.3 bottom). We leave this as an execise (Ex.1.2). Looking at the figures, we see a "flattening" of the cases,  followed by a sharp rise, and then much fewer cases and vaccinations at the end of the dataset period on the right. This may lead the curious to search for explanations for the sharp rise, and learn about different Covid-19 variants and their transmissibility, about seasonal effects, etc. As for the association between the vaccinations and the cases, there may be many factors involved and it would be better to defer the interpretations to the experts.
+One enhancement is to add a trajectory line that connects the points at the end of each month (see Figure 1.3 bottom). We leave this as an exercise (Ex.1.2). Looking at the figures, we see a "flattening" of the cases, followed by a sharp rise, and then much fewer cases and vaccinations at the end of the dataset period on the right. This may lead the curious to search for explanations for the sharp rise, and learn about different Covid-19 variants and their transmissibility, about seasonal effects, etc. As for the association between the vaccinations and the cases, there may be many factors involved and it would be better to defer the interpretations to the experts.
 
 ## 1.3 Example: Climate Stripes
 
 To raise awareness about climate change, compelling data visualizations have been designed for viewing by the general public. These info graphics have been widely used in print and online media and displayed in public spaces. One famous example is the _Climate Spiral_, which was featured in opening ceremonies of the Olympics in 2016. The Climate Spiral was developed by Ed Hawkins, who also designed the _Climate Stripes_ (or _Warming Stripes_); these visualize global warming over time [5, 6].
 
-We can use Python turtle graphics to draw Climate Stripes and Climate Spirals. Figure 1.4 shows a Climate Stripes visualization drawn with turtle using the code below. The result looks similar to the Climate Stripes in [5]. Climate Spirals will be covered in a later chapter on radial plots.
+We can use Python turtle graphics to draw Climate Stripes and Climate Spirals. Figure 1.4 shows a Climate Stripes visualization drawn with turtle using the code below. The result looks like the Climate Stripes in [5]. Climate Spirals will be covered in a later chapter on radial plots.
 
 ![Figure 1.4](/bgdv-book/assets/images/book/climate-stripes_wl-2x80_cmap-RdBu_v01-c_crop.png)  
 _Figure 1.4. Climate Stripes from 1880 to 2020, rendered with a diverging blue-red color mapping. Data Source: NASA GISTEMP  [7]._
 
 First, we need to get the climate data. One source is NASA GISTEMP [7]. This has Global Land-Ocean Temperature data. Specifically, we want the data for the combined land-surface air and sea-surface water temperature anomalies. The _temperature anomaly_ is defined as the temperature difference from a baseline period in degrees Celsius. We will visualize the data for the annual mean temperature anomalies for the years from 1880 to 2020. In the GISTEMP data, the baseline period is 1951-1980.
 
-The NASA GISTEMP data is available on its website in CSV and TXT format. You can downloaded them as files onto your computer and view them using a text editor. Later, we will show how to read and extract selected data from CSV files using Python. Here, the temperature anomaly values (in 1/100 degrees Celsius) from 1880 to 2020 have been extracted and put into a Python list, under the import declarations:
+The NASA GISTEMP data is available on its website in CSV and TXT format. You can download them as files onto your computer and view them using a text editor. Later, we will show how to read and extract selected data from CSV files using Python. Here, the temperature anomaly values (in 1/100 degrees Celsius) from 1880 to 2020 have been extracted and put into a Python list, under the import declarations:
 
 ```python
 import turtle as t
@@ -199,6 +199,4 @@ Ex.1.1. Running the staircase random walk program in Chapter 1.1 will produce th
 
 Ex.1.2. For the trajectory of Covid-19 vaccinations and cases, use Python turtle to draw the visualization with the added lines that connect the points at the end of each month as in Figure 1.3 (bottom). _Hints_: The turtle functions `t.xcor()` and `t.ycor()` gets the current coordinates on the screen, and `t.goto(x, y)` moves to a specified point (x, y). The function `t.pencolor('red')` sets the pen color to red.
 
-*Ex.1.3. Notice that the trajectory of Covid-19 vaccinations and cases in Figure 1.3 (top) is basically a staircase visualization. It has 27 steps. In the previous section, we drew random staircases with 24 steps -- do these look like the Covid-19 trajectory?  Draw several more random staircases with 27 steps, and compare these to the Covid-19 visualization. To what degree do you believe that the Covid-19 trajectory looks like it comes from random data?
-
-
+*Ex.1.3. Notice that the trajectory of Covid-19 vaccinations and cases in Figure 1.3 (top) is basically a staircase visualization. It has 27 steps. In the previous section, we drew random staircases with 24 steps -- do these look similar to the Covid-19 trajectory?  Draw several more random staircases with 27 steps, and compare these to the Covid-19 visualization. To what degree do you believe that the Covid-19 trajectory looks like it comes from random data?

@@ -37,7 +37,7 @@ With these more explicit commands, the `-m` option will execute the pip module, 
 
 ## Installing Pandas and Numpy
 
-Pandas is an open source data analysis and manipuation tool. It has a dependency on Numpy, which is a widely used library for scientific computing with Python. Installing Pandas automatically installs Numpy.
+Pandas is an open source data analysis and manipulation tool. It has a dependency on Numpy, which is a widely used library for scientific computing with Python. Installing Pandas automatically installs Numpy.
 
 For more details about these libraries, see:
 

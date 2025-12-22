@@ -7,7 +7,7 @@ TOC_order: 10
 copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 ---
 
-A popular way to visualize geospatial data is to use _choropleth maps_, which associate the visual propeties of the geographic regions to the data within each region. In the previous chapter, we plotted points over a map without region boundaries. In order to create choropleth maps using GeoPandas, we also need to have the cartographic boundary files. These can be obtained from various sources such as the U.S. Census Bureau [1]. The U.S. Census Bureau foremost has data about its people, and we start with an example with data about population size and density of the states.
+A popular way to visualize geospatial data is to use _choropleth maps_, which associate the visual properties of the geographic regions to the data within each region. In the previous chapter, we plotted points over a map without region boundaries. In order to create choropleth maps using GeoPandas, we also need to have the cartographic boundary files. These can be obtained from various sources such as the U.S. Census Bureau [1]. The U.S. Census Bureau foremost has data about its people, and we start with an example with data about population size and density of the states.
 
 ## 10.1 Example: Population Size and Density of U.S. States
 

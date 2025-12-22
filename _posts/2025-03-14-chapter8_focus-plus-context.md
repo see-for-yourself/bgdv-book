@@ -2,7 +2,6 @@
 layout: post
 title:  "Chapter 8: Focus-plus-Context: Composite Plots"
 date:   2025-03-14
-author:   chiu
 categories: book
 TOC_order: 8
 copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
@@ -15,7 +14,7 @@ _Figure 8.1. Temperate anomaly (Celcius) with focus region from 1933-1967 and co
 
 ## 8.1 Constructing a Focus-plus-Context Visualization with Pyplot
 
-In order to make subplots with different sizes, the layout has to be designed and specified. A nice way to do this in Pyplot is to employ the the mosaic layout, which supports designing layouts based on "ASCII Art". To create the layout in Figure 8.1, the ASCII Art design looks like this:
+In order to make subplots with different sizes, the layout must be designed and specified. A nice way to do this in Pyplot is to employ the mosaic layout feature, which supports designing layouts based on "ASCII Art". To create the layout in Figure 8.1, the ASCII Art design looks like this:
 
 ```text
 .AAA.  
@@ -102,7 +101,7 @@ Now the figure is ready for plotting the data in the subplots.
 
 Using the mosaic layout from the previous section with some minor enhancements, we plot the NASA GISTEMP temperature anomaly data to obtain the focus-plus-context visualization in Figure 8.1.
 
-For the focus region, we select a time interval (1933-1967) around the mid-twentieth century in which an interesting phenomena has been noticed. During this period, there was a leveling off of temperatures, and climatologists have proposed various explanations for this phenomena [2].
+For the focus region, we select a time interval (1933-1967) around the mid-twentieth century in which an interesting phenomenon has been noticed. During this period, there was a leveling off of temperatures, and climatologists have proposed various explanations for this phenomenon [2].
 
 The other x and y limits of the subplots are specified based on the range of values in the dataset. This can be done manually by printing out the min and max values of the dataset, and trying out different values to determine what looks good. A choice of good values for the subplot y-limits are -0.6 and 1.1.
 

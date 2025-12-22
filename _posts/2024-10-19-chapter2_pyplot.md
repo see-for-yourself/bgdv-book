@@ -94,7 +94,7 @@ co2_vals_gml = [
 years_gml = range(1980, 2021)
 ```
 
-Plotting these CO2 data is similar to plotting the temperature data, exept the graph has two separate segments. We can distinguish the Lawdome and GML segments by using different line styles. For color, we use 'gray'. The code for plotting them is below, and the result is in Figure 2.3. It does not look too noisy, and we will not smooth them for now.
+Plotting these CO2 data is similar to plotting the temperature data, except the graph has two separate segments. We can distinguish the Lawdome and GML segments by using different line styles. For color, we use 'gray'. The code for plotting them is below, and the result is in Figure 2.3. It does not look too noisy, and we will not smooth them for now.
 
 ```python
 plt.plot(years_law, co2_vals_law, color='gray', linestyle='dotted')

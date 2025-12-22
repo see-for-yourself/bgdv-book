@@ -7,7 +7,7 @@ TOC_order: 9
 copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 ---
 
-So far we have dealt with visualizing data over time. To visualize data over space, maps are often used. In this chapter, we cover some basics of geospatial visualization with GeoPandas and show examples of plotting data points over a map. And in the next chapter we will associate the visual propeties of the geographic regions to the data within each region to create choropleth maps.
+So far, we have dealt with visualizing data over time. To visualize data over space, maps are often used. In this chapter, we cover some basics of geospatial visualization with GeoPandas and show examples of plotting data points over a map. And in the next chapter we will associate the visual properties of the geographic regions to the data within each region to create choropleth maps.
 
 ## 9.1 Plotting Points over a Map with GeoPandas
 
@@ -43,7 +43,7 @@ In the code below, we use Pandas to read in this CSV file, and then construct a 
 
 Next, we load the map data using the `geodatasets.read_file()` and `geodatasets.get_path()` functions. A world map is given by the file 'naturalearth.land' from geodatasets.
 
-For a cleaner look, we remove the tick marks and labels by passing an empty list to the set ticks functions. Then we call the `plot()` function to plot the data points. Triangular markers are suitable for representing mountains, and we do this by using the marker type '^'.
+For a cleaner look, we remove the tick marks and labels by passing an empty list to the functions for setting the axis ticks. Then we call the `plot()` function to plot the data points. Triangular markers are suitable for representing mountains, and we do this by using the marker type '^'.
 
 To annotate each mountain with its name, we iterate through the items of the columns simultaneously using the Python `zip()` function, and call the Matplotib `annotate()` function. In the resulting image, there is an issue with the text labels "Mont Blanc" and "Elbrus" overlapping. To fix this, we can change the location of the "Elbrus" text label.
 
@@ -88,7 +88,7 @@ plt.show()
 
 In the work of Horton et al., 2020 [4], weather surveillance radars over the continental U.S. were used to acquire data of bird migration activity along with the air surface temperature, and data analysis was performed to study the effects of climate change on the shifts over time of the peak migration dates. Their dataset is available at [4].
 
-In this example, we will show how to use GeoPandas to plot the radar locations from the dataset over a map that is clipped to show only North America, and also to draw vertial lines denoting the flyway boundaries. See Figure 9.2.
+In this example, we will show how to use GeoPandas to plot the radar locations from the dataset over a map that is clipped to show only North America, and also to draw vertical lines denoting the flyway boundaries. See Figure 9.2.
 
 ![Figure 9.2](/bgdv-book/assets/images/book/plot_radars-flyways-over-map_lightgray-black_v02-a_crop.png)  
 _Figure 9.2. Weather surveillance radars used to detect bird migration activity over the U.S., along the Western, Central, and Eastern flyways. Data source: Horton et al. [4]._

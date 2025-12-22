@@ -9,7 +9,7 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 In the previous chapter, we showed how to use Pandas to read CSV files into data frames, select rows and columns to get data values, and filtering the data based on specific criteria. Often the structure of the data is not in the form that we want to input into the functions for making the visualization. Sometimes there are missing or bad data values. Another common task is to aggregate data. Performing these kinds of data manipulation tasks is called _data wrangling_.
 
-In this chapter, we go into some useful techniques for data wrangling using Pandas. First, we briefly discuss missing or bad data, and fixing them with data imputation methods. As an example, we work with data from the Johns Hopkins CSSE Covid-19 dataset. Then we show how to aggregate data by grouping and computing their monthly means. Another basic task is restructuring data, and we show how to restructure the Covid-19 data for the US into a table similar to the structure of the NASA GISTEMP dataset enountered in earlier chapters.
+In this chapter, we go into some useful techniques for data wrangling using Pandas. First, we briefly discuss missing or bad data, and fixing them with data imputation methods. As an example, we work with data from the Johns Hopkins CSSE Covid-19 dataset. Then we show how to aggregate data by grouping and computing their monthly means. Another basic task is restructuring data, and we show how to restructure the Covid-19 data for the US into a table similar to the structure of the NASA GISTEMP dataset encountered in earlier chapters.
 
 ## 5.1 Missing or Bad Data
 
@@ -17,15 +17,15 @@ It is not unusual for a dataset to have missing or incomplete data. With CSV fil
 
 The Pandas `read_csv()` function can handle missing values such as empty strings between commas and replaces them with the value NaN. For non-standard representations such as "***", it will read in the value as a string, and the program will need to detect and handle them if necessary.
 
-Using quick and simple data visualization techniques can also reveal them. For example, the Pyplot function `plot(x, y)` will show gaps in a plotted line at the places where y has missing values. More involved data checking can be performed by writing custom scripts to detect missing or incomplete values that may potentially occur within a certain dataset. Once the missing values have been identified, there are _data imputation_ methods that can be applied, such as using simple interpolation or more sophisticated statistcal estimations.
+Using quick and simple data visualization techniques can also reveal them. For example, the Pyplot function `plot(x, y)` will show gaps in a plotted line at the places where y has missing values. More involved data checking can be performed by writing custom scripts to detect missing or incomplete values that may potentially occur within a certain dataset. Once the missing values have been identified, there are _data imputation_ methods that can be applied, such as using simple interpolation or more sophisticated statistical estimations.
 
-Bad data often depends on the characteristics of a particular dataset. For instance, a sequence of cumulative values has to be monotonically increasing, and a bad value will violate this criterion. Pandas Series has a property `is_monotonic_increasing` that checks this condition. Directly related to the cumulative values are the point values (which are just the differences between successive cumulative values), and the corresponding check is to test for negative values. This can be done in Pandas with the statement `any(series < 0)` that returns whether any element in the series is less than zero.
+Bad data often depends on the characteristics of a particular dataset. For instance, a sequence of cumulative values must be monotonically increasing, and a bad value will violate this criterion. Pandas Series has a property `is_monotonic_increasing` that checks this condition. Directly related to the cumulative values are the point values (which are just the differences between successive cumulative values), and the corresponding check is to test for negative values. This can be done in Pandas with the statement `any(series < 0)` that returns whether any element in the series is less than zero.
 
-Custom scripts can be written to detect the indices of the bad values, and each bad value can be replaced by a special placeholder value to mark these places; with Pandas the value `None` can be used. Another script can followed this to apply a data imputation technique to fill in the placeholder values. An example will be given in the next section.
+Custom scripts can be written to detect the indices of the bad values, and each bad value can be replaced by a special placeholder value to mark these places; with Pandas the value `None` can be used. Another script can follow this to apply a data imputation technique to fill in the placeholder values. An example will be given in the next section.
 
 ## 5.2 Example: CSSE Covid-19 dataset
 
-Covid-19 data was collected by Johns Hopkins Center for Systems Science and Engineering (CSSE) [1] from January 2020 to March 2023, essentially during the period of global emergency [2].  The dataset is available as CSV files that can be downloaded from the CSSE website [1]. [Or from this books's supplementary material.] We will work with the files time_series_covid19_deaths_global.csv and time_series_covid19_confirmed_global.csv, from which we can extract the cumulative daily deaths and cases for the country US.
+Covid-19 data was collected by Johns Hopkins Center for Systems Science and Engineering (CSSE) [1] from January 2020 to March 2023, essentially during the period of global emergency [2].  The dataset is available as CSV files that can be downloaded from the CSSE website [1]. [Or from this book's supplementary material.] We will work with the files time_series_covid19_deaths_global.csv and time_series_covid19_confirmed_global.csv, from which we can extract the cumulative daily deaths and cases for the country US.
 
 These CSV files can be viewed in a text editor to familiarize ourselves with the row and column labels and the contents. We can use Pandas to read the CSV file for deaths, extract the data for US and save it out to a new CSV file. See the code is below. After reading in the CSV file as a DataFrame, we extract the data for the country 'US'. Next we use the `drop()` function to remove the columns that are no longer relevant. Then we create a new DataFrame with columns for the dates and for the corresponding values, and save it out to a CSV file.
 
@@ -76,7 +76,7 @@ bad i = 1138, value = 1122134.0
 
 Furthermore, we can plot the neighborhoods around a bad value (Exercise 4.1). A plot of this is shown in Figure 5.1-top.
 
-We can now fix the bad values by performing interpolation on the data Series at the placeholders with value None, and save out the result to a CSV file for later use. The default interpolation method is linear, which preserves monotonicity.  The other methods available (such as quadratic, spline, etc.) may not preserve monotonicity; see Excercise 5.2. A plot of the interpolated values is shown in Figure 5.1-bottom.
+We can now fix the bad values by performing interpolation on the data Series at the placeholders with value None, and save out the result to a CSV file for later use. The default interpolation method is linear, which preserves monotonicity.  The other methods available (such as quadratic, spline, etc.) may not preserve monotonicity; see Exercise 5.2. A plot of the interpolated values is shown in Figure 5.1-bottom.
 
 ```python
 series = series.interpolate()
@@ -144,7 +144,7 @@ arr_2d = np.empty((len(dfs_by_year), 1 + len(months)))
 arr_2d.fill(np.nan)
 ```
 
-Then we fill in the values in the 2D array with the monthly mean. In order to do this, we group the data frame with the Covid-19 daily point values (`df` from the preivous section) by year, and then further group those subgroups by month. The mean for each monthly subgroup is calculated simply by calling its `mean()` function.
+Then we fill in the values in the 2D array with the monthly mean. In order to do this, we group the data frame with the Covid-19 daily point values (`df` from the previous section) by year, and then further group those subgroups by month. The mean for each monthly subgroup is calculated simply by calling its `mean()` function.
 
 ```python
 dfs_by_year = groupby_year(df)
@@ -210,4 +210,4 @@ Make another plot of the 31-day central moving average. How does this look compa
 
 Ex.5.4. For the Covid-19 data, plot the monthly average values to obtain a plot that looks like Figure 5.4. _Hint:_ User `marker='o'` parameter in the `plot()` function to show the points discretely in the line graph.
 
-Ex.5.5. Extreme rainfall events were visualized in Chapter 3 (Figuure 3.5 and 3.6) for the city of Bengaluru (Bangalore). From the NOAA website [3], download rainfall data for a city of your choice and make visualization like Figuure 3.5 and 3.6.
+Ex.5.5. Extreme rainfall events were visualized in Chapter 3 (Figure 3.5 and 3.6) for the city of Bengaluru (Bangalore). From the NOAA website [3], download rainfall data for a city of your choice and make visualization like Figure 3.5 and 3.6.

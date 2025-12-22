@@ -11,7 +11,7 @@ Grayscale images are versatile as they can be produced for a variety of digital 
 
 For both grayscale and color, the aesthetic aspects are to a great extent subjective and personal. The perceptual aspects have been studied and there are design principles applicable to data visualization [1]. One important technique is the use of perceptually uniform colormaps. For numerical data, these map data values to color (or grayscale) values so that a difference on the data value scale is perceived as the same as a difference on the color value scale. It is notable that a sequential grayscale is more effective than a sequential color scale. For visualizing categorical variables, marker shapes and colors with the same level of saliency can be employed.
 
-In this chapter, we begin with a discussion of grayscale and colormaps, and show an example of applying different colormaps to the Climate Stripes visualization. Then we go over transparency, followed by marker shapes and colors. We end the chapter with a longer example of visualing extreme rainfall events in Bengaluru.
+In this chapter, we begin with a discussion of grayscale and colormaps, and show an example of applying different colormaps to the Climate Stripes visualization. Then we go over transparency, followed by marker shapes and colors. We end the chapter with a longer example of visualizing extreme rainfall events in Bengaluru.
 
 ## 3.1 Grayscale and Colormaps
 
@@ -19,12 +19,12 @@ A standard way to represent color on a computer is the RGB color model, with thr
 
 The naive method of mapping data values to the grayscale values (or color values) is to use a linear map from the data coordinates to the RGB component values. A better method is to employ a perceptually uniform grayscale map (or color map). These maps are designed so that humans perceive an equal change in the grayscale space (or color space) for each step change in the data space.
 
-We can compare a linear RGB mapping to a perceptally uniform grayscale sequential mapping by looking at them next to each other. See Figure 3.1. There is a slight but noticeable difference: the perceptual scale appears less dark on the left half and more balanced overall.
+We can compare a linear RGB mapping to a perceptually uniform grayscale sequential mapping by looking at them next to each other. See Figure 3.1. There is a slight but noticeable difference: the perceptual scale appears less dark on the left half and more balanced overall.
 
 ![Figure 3.1](/bgdv-book/assets/images/book/grayscale-stripes_wl-2x20_v02-c_crp.png)  
 _Figure 3.1. Grayscale mappings over the interval [0.0, 1.0]. Top: Linear in RGB. Bottom: Sequential colormap ('Greys')._
 
-With Python, there are various ways to specify a _color_ or to choose a _colormap_ [3]. A color can be specified by an RGB value or by a name. Colormaps provide a mapping from the data values to the color values, and a number of well-desgined grayscale and color mappings are available in the Matplotlib library. For a listing of the available colormaps, see [3].
+With Python, there are various ways to specify a _color_ or to choose a _colormap_ [3]. A color can be specified by an RGB value or by a name. Colormaps provide a mapping from the data values to the color values, and a number of well-designed grayscale and color mappings are available in the Matplotlib library. For a listing of the available colormaps, see [3].
 
 To run the code in this chapter, the Matplotlib library needs to be installed in your Python setup (see Appendix A).
 
@@ -38,7 +38,7 @@ colormap = mpl.colormaps['RdBu']
 
 specifies by name the 'RdBu' colormap. The resulting image from Chapter 1.3 is reproduced here in Figure 3.2 top, and it looks like the original visualization by Ed Hawkins. Note that 'RdBu' is not a sequential colormap, rather it is a type of _diverging_ colormap. Diverging means that there is a critical point such that on the left it is one color and on the right it is another color. In Figure 3.2 top, the critical point corresponds to the middle value of the range of data values. Another sensible choice for the critical point is the zero data value (see Exercise 3.1).
   
-Another popular choice for data visualization is the 'Viridis' colormap (Figure 3.2 middle); it is a perceptually uniform sequential colormap. For a grayscale Cimate Stripes, a perceptually uniform grayscale 'Greys' colormap is used in Figure 3.2 bottom. Studies have shown that sequential grayscale is better than sequential color in terms of accurate visual perception [1], although some might find it aesthetically less pleasing.
+Another popular choice for data visualization is the 'Viridis' colormap (Figure 3.2 middle); it is a perceptually uniform sequential colormap. For a grayscale Climate Stripes, a perceptually uniform grayscale 'Greys' colormap is used in Figure 3.2 bottom. Studies have shown that sequential grayscale is better than sequential color in terms of accurate visual perception [1], although some might find it aesthetically less pleasing.
 
 ![Figure 3.2a](/bgdv-book/assets/images/book/climate-stripes_wl-2x80_cmap-RdBu_v01-c_crop.png)  
 ![Figure 3.2b](/bgdv-book/assets/images/book/climate-stripes_wl-2x80_cmap-viridis_v01-d_crop.png)  
@@ -54,7 +54,7 @@ _Figure 3.3. Random points. Left: Gray. Right: Gray with alpha = 0.5._
 
 The _alpha channel_ controls the transparency. For the RGB color model, the alpha channel is a fourth component that extends it to the RGBA model. Transparency is supported in Pyplot, but not currently in Turtle.
 
-To use the alpha channel in Pyplot, set the `alpha` parameter in the `plot()` or `scatter()` functions. The `alpha` can be set between 0.0 and 1.0. In the example of Figure 3.3, the code is as folllows:
+To use the alpha channel in Pyplot, set the `alpha` parameter in the `plot()` or `scatter()` functions. The `alpha` can be set between 0.0 and 1.0. In the example of Figure 3.3, the code is as follows:
 
 ```python
 # generate some random points
@@ -124,11 +124,11 @@ plt.show()
 
 ## 3.5 Example: Rainfall Data in Bengaluru
 
-Let's look at an example with real data. In this example, we visualize extreme rainfall events at Bengaluru (also known as Bangalore). There is no single standard definition of an extreme rainfall event. In addition to the the amount of rain in a day, another important consideration is how it compares to the seasonal amount. A good benchmark is a month's worth of rain falling in one day in that season at that location (see [6]).
+Let's look at an example with real data. In this example, we visualize extreme rainfall events at Bengaluru (also known as Bangalore). There is no single standard definition of an extreme rainfall event. In addition to the amount of rain in a day, another important consideration is how it compares to the seasonal amount. A good benchmark is a month's worth of rain falling in one day in that season at that location (see [6]).
 
-Figure 3.5 is a scatter plot that shows the top 1% of the days with precipitation recorded by a weather station (IN009010100) in Bengalaru (Bangalore) from 1901-2020, using data from NOAA [7]. Each day is represented by a triangular marker. The size of a triangle represents extremeness: it is proportional to the average daily amount of rain in that point's month. A triangular marker points up if it is considered an extreme event. By the benchmark above, an extreme event exceeds a month's worth of rain, which we calculate by taking the average rainfall of its month over the years in the dataset for Bengalaru.
+Figure 3.5 is a scatter plot that shows the top 1% of the days with precipitation recorded by a weather station (IN009010100) in Bengaluru (Bangalore) from 1901-2020, using data from NOAA [7]. Each day is represented by a triangular marker. The size of a triangle represents extremeness: it is proportional to the average daily amount of rain in that point's month. A triangular marker points up if it is considered an extreme event. By the benchmark above, an extreme event exceeds a month's worth of rain, which we calculate by taking the average rainfall of its month over the years in the dataset for Bengaluru.
 
-Looking closer at Figure 3.5, the day with the second highest rainfall (its month is March when it rains only a little) has a much larger marker size than the day with the highest rainfall (its month is September when it rains a lot). Another interesting point is the highest downward pointing triangle at 1994-09-13. It has over 6 inches of rain -- this is a lot of rain in a single day! However, by the benchmark, it is not considered to be an extreme event. These and other similar points in the visualization show clearly that a day with a large amount of rain may not be as extreme as a day with less rain when they occur in differnet seasons.
+Looking closer at Figure 3.5, the day with the second highest rainfall (its month is March when it rains only a little) has a much larger marker size than the day with the highest rainfall (its month is September when it rains a lot). Another interesting point is the highest downward pointing triangle at 1994-09-13. It has over 6 inches of rain -- this is a lot of rain in a single day! However, by the benchmark, it is not considered to be an extreme event. These and other similar points in the visualization show clearly that a day with a large amount of rain may not be as extreme as a day with less rain when they occur in different seasons.
 
 ![Figure 3.5](/bgdv-book/assets/images/book/plot_Bangalore_1901-2020_top_prcp_extreme-markers_alpha-0.25_gray_6x3_v03-a.png)  
 _Figure 3.5. The size of a point is proportional to the average rainfall of its month. The upward pointing triangular markers means that they are extreme by the benchmark above. The markers are gray with alpha = 0.25. Data source: NOAA [7]_

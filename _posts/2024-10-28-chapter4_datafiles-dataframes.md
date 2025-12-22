@@ -41,9 +41,9 @@ When reading a CSV file into a DataFrame using the Pandas `read_csv()` function,
 
 ## 4.4 Example: NASA GISTEMP dataset
 
-The climate data for temperature anomaly is available as a CSV file that can be downloaded from the NASA GISTEMP website [1]. [Or from this books's supplementary material.] The file GLB.Ts+dSST.csv contains global land-ocean mean temperature anomaly data for the years and months from 1880 to the present year.
+The climate data for temperature anomaly is available as a CSV file that can be downloaded from the NASA GISTEMP website [1]. [Or from this book's supplementary material.] The file GLB.Ts+dSST.csv contains global land-ocean mean temperature anomaly data for the years and months from 1880 to the present year.
 
-You can look at the contents of this file by opening it with any text or code editor such as Notepad or VS Code. As you can see, the first line is a desription, the second line is a header line with the column names, and the rest of the lines are rows of data values.
+You can look at the contents of this file by opening it with any text or code editor such as Notepad or VS Code. As you can see, the first line is a description, the second line is a header line with the column names, and the rest of the lines are rows of data values.
 
 To construct the same `temp_anoms` variable used in the code in Chapters 1 and 2, the data that we want is in the column "J-D" which stands for the January to December calendar year annual averages. (The 'D-N' column is for the seasonal year from December to November.) And we want them for the years beginning at 1880 and up to 2020 (or to the most recent year if you prefer).
 
@@ -67,13 +67,13 @@ temp_anoms = [round(float(x)*100) for x in temp_anoms]
 
 In the line of code to read the file into a DataFrame object `df`, we specify `skiprows=1` to not read the first line which is just a description of the file contents. The second row with column names are automatically parsed and used to index the columns of the DataFrame. Then we filter the years from 1880 to 2020. A convenient way to inspect the values of a DataFrame and check our program is to use the `head()` and `tail()` functions to get the first five rows and the last five rows, and print them out.
 
-Next, we select the column 'J-D' containing the annual means. This data is retrieved as a one-dimensional Pandas _Series_ object. Finally we convert this Series to a Python list, and multiply the values by 100 to obtain an integer scale (representing 0.01 degrees Celsius) that was used in Chapters 1 and 2.
+Next, we select the column 'J-D' containing the annual means. This data is retrieved as a one-dimensional Pandas _Series_ object. Finally, we convert this Series to a Python list, and multiply the values by 100 to obtain an integer scale (representing 0.01 degrees Celsius) that was used in Chapters 1 and 2.
 
 We can also work directly with the Pandas DataFrame and Series objects instead of selecting and converting data to Python lists. We will do this in the next section.
 
 To save a DataFrame out to a CSV file, use its `to_csv()` function. This function has a parameter `index` which is True by default, and in this case will insert an extra column containing the row numbers; setting `index=False` will prevent this behavior.
 
-We give an example of saving out to a CSV file by constructing a new DataFrame with two columns for the years and for the temperature anomalies, and outputting that to a CSV file. First we make another list for the years, and use this to initialize a new DataFrame specifying the column names and the lists of values for the columns. Then we write the DataFrame out to a CSV file with a descriptive filename:
+We give an example of saving out to a CSV file by constructing a new DataFrame with two columns for the years and for the temperature anomalies, and outputting that to a CSV file. First, we make another list for the years, and use this to initialize a new DataFrame specifying the column names and the lists of values for the columns. Then we write the DataFrame out to a CSV file with a descriptive filename:
 
 ```python
 years = df_filtered['Year'].to_list()
@@ -87,7 +87,7 @@ _Small multiple_ is a design pattern for visualizing different subsets of a data
 
 We can make a small multiple visualization of the global temperature anomalies at the finer granularity of months by accessing the columns of the data frame `df_filtered` from above. First, we extract the months from the column names, then similar to the 2x1 plot in the previous chapter, we create a 4x3 plot using the code below.
 
-Before, for simplicity we converted things in Pandas data structures to Python lists. Here, we will work directly with Pandas data structures. In this way, we extract the names of the months, the subset of the data frame for the months data, and the years. We neeed to be careful and cast the temperature anomaly values to float type and the year values to int type (see Exercise 4.3). Note that the Pyplot `plot()` function can handle these data structures extracted from Pandas.
+Before, for simplicity we converted things in Pandas data structures to Python lists. Here, we will work directly with Pandas data structures. In this way, we extract the names of the months, the subset of the data frame for the months data, and the years. We need to be careful and cast the temperature anomaly values to float type and the year values to int type (see Exercise 4.3). Note that the Pyplot `plot()` function can handle these data structures extracted from Pandas.
 
 In each month's subplot, we plot the raw values (in dark gray) and the smoothed values (in black). The smoothing is performed directly on a Pandas Series object, as in the line of code inside the function `central_moving_average()` from the Chapter 2 section on Smoothing Data (whose input takes a Python list). To set the same limits on the y-axis, we use the function `set_ylim()`. To reduce clutter and save space, we only put the y-axis labels on the first subplot of each row.
 
