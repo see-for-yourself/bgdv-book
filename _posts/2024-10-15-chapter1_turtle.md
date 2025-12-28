@@ -52,7 +52,7 @@ random.seed(21)
 Then we modify the calls to the turtle forward function to:
 
 ```python
-t.forward(10*random.random())
+t.forward(10 * random.random())
 ```
 
 To make the image look nicer, we increase the number of steps by setting the range parameter in the for loop to 24 instead of 12.
@@ -96,9 +96,9 @@ cases_monthly = [
 scale = 2 # to fit in screen nicely
 steps = len(vax_monthly)
 for i in range(steps):
-    t.forward(scale*vax_monthly[i])
+    t.forward(scale * vax_monthly[i])
     t.left(90)
-    t.forward(scale*cases_monthly[i])
+    t.forward(scale * cases_monthly[i])
     t.right(90)
 
 t.hideturtle()
@@ -148,18 +148,18 @@ max_ta = max(temp_anoms)
 range_ta = max_ta - min_ta
 
 # rescale the temperatue values [min_ta, max_ta] to [0.0, 1.0]
-values = [(x - min_ta)/range_ta for x in temp_anoms]
+values = [(x - min_ta) / range_ta for x in temp_anoms]
 
 screen = t.Screen()
-screen.colormode(1) 
-colormap = mpl.colormaps['RdBu']  # diverging Red-Blue
+screen.colormode(1)
+colormap = mpl.colormaps["RdBu"]  # diverging Red Blue
 
 stripe_width, stripe_length = 2, 80
 t.speed(10)
 t.pensize(stripe_width)
 
 # set starting postion to place figure at center of screen
-t.teleport(-stripe_width *len(values)/2, -stripe_length/2)
+t.teleport(-stripe_width * len(values) / 2, -stripe_length / 2)
 
 for value in values:
     rgb = colormap(1.0 - value)  # flip the scale to Blue-Red

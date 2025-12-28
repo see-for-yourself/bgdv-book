@@ -17,7 +17,7 @@ Turtle can draw a line segment by moving with respect to relative or absolute pa
 import turtle as t
 
 segments = 120
-angle = 360/segments
+angle = 360 / segments
 for i in range(segments):
     t.left(angle)
     t.forward(5)
@@ -59,26 +59,25 @@ def rotate(l, n):
 def draw_year(theta_months, year_vals, r0, scale, color):
     t.pencolor(color[0], color[1], color[2])
     for j in range(len(theta_months)):
-        r = r0 + scale*year_vals[j]
-        x = r*math.cos(theta_months[j])
-        y = r*math.sin(theta_months[j])
+        r = r0 + scale * year_vals[j]
+        x = r * math.cos(theta_months[j])
+        y = r * math.sin(theta_months[j])
 
         if j == 0:
             t.teleport(x, y)  # set starting postion
         else:
             t.goto(x, y)
 
-
-filepath = 'GLB.Ts+dSST.csv'  # data file from NASA GISTEMP [4]
+filepath = "GLB.Ts+dSST.csv"  # data file from NASA GISTEMP [4]
 df = pd.read_csv(filepath, skiprows=1)
 
 # select years 1880-2020
-df_filtered = df[(df['Year'] >= 1880) & (df['Year'] <= 2020)]
+df_filtered = df[(df["Year"] >= 1880) & (df["Year"] <= 2020)]
 months = df.columns[1:13].tolist()
 df_months = df_filtered[months].astype(float)
-df_year = df_filtered['Year'].astype(int)
+df_year = df_filtered["Year"].astype(int)
 
-theta_months = np.linspace(0, 2*np.pi, len(months), endpoint=False).tolist()
+theta_months = np.linspace(0, 2 * np.pi, len(months), endpoint=False).tolist()
 # reverse and rotate months to advance clockwise 
 # and to place Jan at the 12 o'clock position 
 theta_months.reverse()
@@ -94,21 +93,21 @@ screen.setup(width, height)
 t.speed(10)
 t.pensize(1)
 # pen color:
-colormap = mpl.colormaps['viridis']
+colormap = mpl.colormaps["viridis"]
 brightness_range = 1.0
 
 # parameters for transformation to screen coordinates
 r0, scale = 60, 40
 
 for i in range(df_year.size):
-    value = i/(df_year.size-1)
-    color_value = value*brightness_range + (1.0 - brightness_range)
+    value = i / (df_year.size - 1)
+    color_value = value * brightness_range + (1.0 - brightness_range)
     color = colormap(color_value)
 
     year_vals = df_months.iloc[i].tolist()
 
     if i < (df_year.size - 1):
-        year_vals.append(df_months.iloc[i+1].iloc[0])
+        year_vals.append(df_months.iloc[i + 1].iloc[0])
         draw_year(theta_months_close, year_vals, r0, scale, color)
     else:
         draw_year(theta_months, year_vals, r0, scale, color)
@@ -123,6 +122,6 @@ In the next chapter, we will use Pyplot to make polar plots that has a polar coo
 
 ## Exercises
 
-Ex.6.1. In the Climate Spirals code, instead of the 'viridis' colormap, use a sequential 'Greys' colormap, and also adjust the brightness range.
+Ex.6.1. In the Climate Spirals code, instead of the "viridis" colormap, use a sequential "Greys" colormap, and also adjust the brightness range.
 
-Ex.6.2. In the Climate Spirals code, instead of the viridis color scheme, use a diverging blue to red color scheme. _Hint_: Use the diverging Red-Blue ('RdBu') colormap with the scale flipped to Blue-Red (as we had done for the Climate Stripes in Chapter 1).
+Ex.6.2. In the Climate Spirals code, instead of the viridis color scheme, use a diverging blue to red color scheme. _Hint_: Use the diverging Red-Blue ("RdBu") colormap with the scale flipped to Blue-Red (as we had done for the Climate Stripes in Chapter 1).

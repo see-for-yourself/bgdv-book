@@ -33,7 +33,7 @@ To run the code in this chapter, the Matplotlib library needs to be installed in
 We can try out different colormaps with the Climate Stripes visualization. A description of the visualization and the Python code is given in Chapter 1.3. In that code, the line
 
 ```python
-colormap = mpl.colormaps['RdBu']
+colormap = mpl.colormaps["RdBu"]
 ```
 
 specifies by name the 'RdBu' colormap. The resulting image from Chapter 1.3 is reproduced here in Figure 3.2 top, and it looks like the original visualization by Ed Hawkins. Note that 'RdBu' is not a sequential colormap, rather it is a type of _diverging_ colormap. Diverging means that there is a critical point such that on the left it is one color and on the right it is another color. In Figure 3.2 top, the critical point corresponds to the middle value of the range of data values. Another sensible choice for the critical point is the zero data value (see Exercise 3.1).
@@ -68,12 +68,12 @@ for i in range(100):
 fig, axes = plt.subplots(1, 2)
 
 # plot left subplot
-axes[0].scatter(x, y, color='gray')
-axes[0].set_aspect('equal')
+axes[0].scatter(x, y, color="gray")
+axes[0].set_aspect("equal")
 
 # plot right subplot
-axes[1].scatter(x, y, color='gray', alpha=0.5)
-axes[1].set_aspect('equal')
+axes[1].scatter(x, y, color="gray", alpha=0.5)
+axes[1].set_aspect("equal")
 plt.show()
 ```  
 
@@ -108,17 +108,18 @@ for k in range(n_groups):
 fig, axes = plt.subplots(1, 2)
 
 # plot left subplot
-marker_types = ['o', 's', '^', 'x']
+marker_types = ["o", "s", "^", "x"]
 for k in range(n_groups):
-    axes[0].scatter(groups_x[k], groups_y[k], marker=(marker_types[k]), 
-                    color='gray')
-axes[0].set_aspect('equal')
+    axes[0].scatter(groups_x[k], groups_y[k], 
+                    marker=(marker_types[k]), color="gray")
+axes[0].set_aspect("equal")
+
 
 # plot right subplot
-colors = ['tab:blue', 'tab:orange', 'tab:green', 'cyan']
+colors = ["tab:blue", "tab:orange", "tab:green", "cyan"]
 for k in range(n_groups):
     axes[1].scatter(groups_x[k], groups_y[k], color=colors[k])
-axes[1].set_aspect('equal')
+axes[1].set_aspect("equal")
 plt.show()
 ```  
 

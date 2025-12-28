@@ -11,7 +11,7 @@ In this chapter, we show how to make polar plots with Pyplot. Continuing with th
 
 ## 7.1 Polar Coordinates in Pyplot
 
-Polar plots can be made using Pyplot's support for polar coordinates. Unlike turtle graphics which draws on a blank screen, Pyplot provides coordinate axes and labels. To make polar plots with Pyplot, set the `'projection'` to `'polar'` in the function parameters for creating a figure.
+Polar plots can be made using Pyplot's support for polar coordinates. Unlike turtle graphics which draws on a blank screen, Pyplot provides coordinate axes and labels. To make polar plots with Pyplot, set the `"projection"` to `"polar"` in the function parameters for creating a figure.
 
 To illustrate with a simple example, a Fermat spiral is drawn by the following code and the result is shown in Figure 6.1. Fermat spirals can be used to model natural phenomena like sunflower florets [1], and for engineering applications such as efficient layout of mirrors in solar power plants [2].
 
@@ -19,17 +19,18 @@ To illustrate with a simple example, a Fermat spiral is drawn by the following c
 import matplotlib.pyplot as plt
 
 turns = 3
-n_steps = 100*turns
-step = turns*2*math.pi/n_steps
-angles, radii = [], []    
+n_steps = 100 * turns
+step = turns * 2 * math.pi / n_steps
+angles, radii = [], []
 for i in range(n_steps):
-    theta = i*step
+    theta = i * step
     r = math.sqrt(theta)
     angles.append(theta)
-    radii.append(r)        
+    radii.append(r)
 
-fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
-ax.plot(angles, radii, color='black')
+fig, ax = plt.subplots(subplot_kw={"projection": "polar"})
+ax.plot(angles, radii, color="black")
+
 plt.show()
 ```
 
@@ -49,14 +50,14 @@ The code is similar to the Turtle code in the previous chapter, with a few minor
 
 ```python
 # create the polar plot
-fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+fig, ax = plt.subplots(subplot_kw={"projection": "polar"})
 ```
 
 Inside the for loop, modify the if-else statement:
 
 ```python
     if i < (df_year.size - 1):
-        year_vals.append(df_months.iloc[i+1].iloc[0])
+        year_vals.append(df_months.iloc[i + 1].iloc[0])
         ax.plot(theta_months_close, year_vals, color=color, linewidth=0.5)
     else:
         ax.plot(theta_months, year_vals, color=color, linewidth=0.5)
@@ -99,7 +100,7 @@ _Figure 7.4. Different data transformations. Data source: Johns Hopkins CSSE [4]
 
 ## Exercises
 
-Ex.7.1. Create Figure 7.3. Modify the code in Chapter 5 to read in our data file with the Covid-19 monthly mean values (US_pointvals_monthly-mean.csv), and modify the code in this chapter to plot that data in polar coordinates. Also, use a sequential grayscale colormap 'Greys' instead of 'viridis' which does not look as good for this visualization.
+Ex.7.1. Create Figure 7.3. Modify the code in Chapter 5 to read in our data file with the Covid-19 monthly mean values (US_pointvals_monthly-mean.csv), and modify the code in this chapter to plot that data in polar coordinates. Also, use a sequential grayscale colormap "Greys" instead of "viridis" which does not look as good for this visualization.
 
 Ex.7.2. From the CSSE Covid-19 dataset, select a country from the southern hemisphere and make a polar plot as in Figure 7.3. Compare it to the plot of the US, which is country in the northern hemisphere with different months for the seasons.
 

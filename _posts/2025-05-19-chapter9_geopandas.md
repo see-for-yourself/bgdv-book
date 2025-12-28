@@ -41,9 +41,9 @@ Vinson,-78.526,-85.617
 
 In the code below, we use Pandas to read in this CSV file, and then construct a `geopandas.GeoDataFrame` object specifying the geometry as points with x and y coordinates from longitude and latitude columns, and the coordinate reference system (crs) as "EPSG:4326", which is a widely used geographic coordinate system.
 
-Next, we load the map data using the `geodatasets.read_file()` and `geodatasets.get_path()` functions. A world map is given by the file 'naturalearth.land' from geodatasets.
+Next, we load the map data using the `geodatasets.read_file()` and `geodatasets.get_path()` functions. A world map is given by the file "naturalearth.land" from geodatasets.
 
-For a cleaner look, we remove the tick marks and labels by passing an empty list to the functions for setting the axis ticks. Then we call the `plot()` function to plot the data points. Triangular markers are suitable for representing mountains, and we do this by using the marker type '^'.
+For a cleaner look, we remove the tick marks and labels by passing an empty list to the functions for setting the axis ticks. Then we call the `plot()` function to plot the data points. Triangular markers are suitable for representing mountains, and we do this by using the marker type "^".
 
 To annotate each mountain with its name, we iterate through the items of the columns simultaneously using the Python `zip()` function, and call the Matplotib `annotate()` function. In the resulting image, there is an issue with the text labels "Mont Blanc" and "Elbrus" overlapping. To fix this, we can change the location of the "Elbrus" text label.
 
@@ -53,28 +53,28 @@ import geopandas
 import geodatasets
 import matplotlib.pyplot as plt
 
-df = pd.read_csv(SevenSummits-9.csv)
+df = pd.read_csv("SevenSummits-9.csv")
 gdf = geopandas.GeoDataFrame(
     df, 
     geometry=geopandas.points_from_xy(df.longitude, df.latitude), 
     crs="EPSG:4326"
 )
 
-world = geopandas.read_file(geodatasets.get_path('naturalearth.land'))
+world = geopandas.read_file(geodatasets.get_path("naturalearth.land"))
 
 # plot the map
-ax = world.plot(color='lightgray')
+ax = world.plot(color="lightgray")
 ax.set_xticks([])
 ax.set_yticks([])
 
 # plot the data points
-gdf.plot(ax=ax, color='black', marker='^', markersize=10)
+gdf.plot(ax=ax, color="black", marker="^", markersize=10)
 
 # annotate the data points with the names
 for x, y, name in zip(gdf.geometry.x, gdf.geometry.y, df.name):
     xytext = (3, 3)
-    # avoid overlapping text with 'Elbrus'
-    if name == 'Elbrus':
+    # avoid overlapping text with "Elbrus"
+    if name == "Elbrus":
         xytext = (3, -10)
     ax.annotate(name, xy=(x, y), xytext=xytext, 
                 textcoords="offset points", size=7)
@@ -100,33 +100,32 @@ Next, we load the map data using the `geodatasets.get_path()` function. Since we
 To draw the dashed vertical lines representing the boundaries of the Western, Central, and Eastern flyways, we use the Matplotib `axvline()` function. The x-coordinates of the flyway boundaries are not given in the dataset file, but they can be determined to be approximately -103 and -90 using the information in the paper [4] that there are 40, 42, and 61 radars in the Western, Central, and Eastern flyways, respectively. See Exercise 9.1.
 
 ```python
-df_spring = pd.read_csv('spring_data.csv')
-df_unique = df_spring.drop_duplicates(subset=['radar_id'], keep='first')
+df_spring = pd.read_csv("spring_data.csv")
+df_unique = df_spring.drop_duplicates(subset=["radar_id"], keep="first")
 
 gdf = geopandas.GeoDataFrame(
     df_unique, 
     geometry=geopandas.points_from_xy(df.LONGITUDE_W, df.LATITUDE_N), 
-    crs='EPSG:4326'
+    crs="EPSG:4326"
 )
 
-world = geopandas.read_file(geodatasets.get_path('naturalearth.land'))
+world = geopandas.read_file(geodatasets.get_path("naturalearth.land"))
 
 # restrict the view to North America
-ax = world.clip([-150, 15, -45, 58]).plot(color='lightgray')
+ax = world.clip([-150, 15, -45, 58]).plot(color="lightgray")
 
-gdf.plot(ax=ax, color='black', markersize=3)
-ax.set_xlabel('Longitude')
-ax.set_ylabel('Latitude')
+gdf.plot(ax=ax, color="black", markersize=3)
+ax.set_xlabel("Longitude")
+ax.set_ylabel("Latitude")
 
 # draw vertical dashed lines for the flyways
-# between Western and Central flyways
-plt.axvline(x=-103, color='gray', alpha=0.5, linestyle='--')
-
-# between Western and Central and Eastern flyways
-plt.axvline(x=-90, color='gray', alpha=0.5, linestyle='--')
+# between Western and Central flyways:
+plt.axvline(x=-103, color="gray", alpha=0.5, linestyle="--")
+# between Central and Eastern flyways:
+plt.axvline(x=-90, color="gray", alpha=0.5, linestyle="--")
 ```
 
-Before moving on to the topic of choropleth maps, we can also make plots of the peak migration temporal data to look at the trends. The data for the peak migration (day of year) is in the column 'q50', and the air surface temperature is in the column 'air.sfc.mean'. As we have done in previous chapters, we can calculate the 5-year moving averages and organize the plots in a grid as in Figure 9.3. We leave the details to the exercises. The plots indicate that over the 24 years of data from 1995 to 2018, the air surface temperature has increased, and the peak migration has come earlier in the year.
+Before moving on to the topic of choropleth maps, we can also make plots of the peak migration temporal data to look at the trends. The data for the peak migration (day of year) is in the column "q50", and the air surface temperature is in the column "air.sfc.mean". As we have done in previous chapters, we can calculate the 5-year moving averages and organize the plots in a grid as in Figure 9.3. We leave the details to the exercises. The plots indicate that over the 24 years of data from 1995 to 2018, the air surface temperature has increased, and the peak migration has come earlier in the year.
 
 ![Figure 9.3](/bgdv-book/assets/images/book/plot-2x2_years_peak_temp_cma-5_v03-a.png)  
 _Figure 9.3. Bird migration activity over the U.S. (5-year moving average). Data source: Horton et al. [2]._

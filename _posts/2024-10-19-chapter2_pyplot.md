@@ -23,14 +23,15 @@ import matplotlib.pyplot as plt
 # Use temp_anoms from previous Chapter
 # temp_anoms = [...]
 
-# To get degrees Celsius, divide each data value by 100
-y = [t/100 for t in temp_anoms]
+# To get degrees Celsius, divide data by 100
+y = [t / 100 for t in temp_anoms]
 
 x = range(1880, 2021)
 
-plt.plot(x, y, color='black')
-plt.xlabel('Years')
-plt.ylabel('Temp Anomaly (Celsius)')
+plt.plot(x, y, color="black")
+
+plt.xlabel("Years")
+plt.ylabel("Temp Anomaly (Celsius)")
 plt.show()
 ```
 
@@ -49,9 +50,9 @@ For the code, we add the library import and define the function:
 import pandas as pd
 
 def central_moving_average(data_list, window):
-    df = pd.DataFrame({'values': data_list})
-    df['cma'] = df['values'].rolling(window, center=True, min_periods=1).mean()
-    return df['cma']
+    df = pd.DataFrame({"values": data_list})
+    df["cma"] = df["values"].rolling(window, center=True, min_periods=1).mean()
+    return df["cma"]
 ```
 
 This function converts the data from a Python list to a Pandas data frame object. (We will discuss data frames more in the next chapter.) Then it calls the rolling() function to compute the moving average, with the _window_ parameter specifying the window length.  For a central moving average, the _center_ parameter is set to True. Using an odd number _k_ for the window length will use _k/2_ points on each side of the current point _x_ (together with _x_) to compute the average.
@@ -97,8 +98,8 @@ years_gml = range(1980, 2021)
 Plotting these CO2 data is similar to plotting the temperature data, except the graph has two separate segments. We can distinguish the Lawdome and GML segments by using different line styles. For color, we use 'gray'. The code for plotting them is below, and the result is in Figure 2.3. It does not look too noisy, and we will not smooth them for now.
 
 ```python
-plt.plot(years_law, co2_vals_law, color='gray', linestyle='dotted')
-plt.plot(years_gml, co2_vals_gml, color='gray', linestyle='dashed')
+plt.plot(years_law, co2_vals_law, color="gray", linestyle="dotted")
+plt.plot(years_gml, co2_vals_gml, color="gray", linestyle="dashed")
 ```
 
 ![Figure 2.3](/bgdv-book/assets/images/book/CO2_law-gml_v02-a_BW.png)  
@@ -109,27 +110,26 @@ _Figure 2.3. Plot of CO2 from 1880 to 2020. Lawdome data is shown by the dotted 
 We can visually compare the trends in temperature anomaly and in CO2 by looking at the plots in Figures 2.2 and 2.3. A good way to do this is to plot them next to each other in a single figure. The code to do this as follows:
 
 ```python
-    x = range(1880, 2021)
+x = range(1880, 2021)
 
-    y1 = temp_anoms
-    y1 = [t/100 for t in temp_anoms]
-    y1 = central_moving_average(y1, window=5)
+temp_anoms = [t / 100 for t in temp_anoms]
+temp_anoms = central_moving_average(temp_anoms, window=5)
 
-    # Create a figure with 2 rows and 1 column
-    fig, axes = plt.subplots(2, 1)
+# create a figure with 2 rows and 1 column
+fig, axes = plt.subplots(2, 1)
 
-    # Plot temp anoms
-    axes[0].plot(x, y1, color='black')
-    axes[0].set_ylabel('Temp Anomaly (Celsius)')
+# first subplot
+axes[0].plot(x, temp_anoms, color="black")
+axes[0].set_ylabel("Temp Anomaly (Celsius)")
 
-    # Plot CO2
-    axes[1].plot(years_law, co2_vals_law, color='gray', linestyle='dotted')
-    axes[1].plot(years_gml, co2_vals_gml, color='gray', linestyle='dashed')
-    axes[1].set_ylabel('CO2 (ppm)')
-    axes[1].set_xlabel('Years')
+# second subplot
+axes[1].plot(years_law, co2_vals_law, color="gray", linestyle="dotted")
+axes[1].plot(years_gml, co2_vals_gml, color="gray", linestyle="dashed")
+axes[1].set_xlabel("Years")
+axes[1].set_ylabel("CO2 (ppm)")
 
-    plt.tight_layout()  # Adjust spacing
-    plt.show()
+plt.tight_layout()  # adjust spacing
+plt.show()
 ```
 
 ![Figure 2.4](/bgdv-book/assets/images/book/plot-2x1_temp-anoms_CO2_law-gml_v02-a_BW.png)  

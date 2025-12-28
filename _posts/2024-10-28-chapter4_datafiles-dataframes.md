@@ -52,17 +52,17 @@ The code for doing this is:
 ```python
 import pandas as pd
 
-df = pd.read_csv(GLB.Ts+dSST.csv, skiprows=1)
+df = pd.read_csv("GLB.Ts+dSST.csv", skiprows=1)
 
 # select years 1880-2020
-df_filtered = df[(df['Year'] >= 1880) & (df['Year'] <= 2020)]
+df_filtered = df[(df["Year"] >= 1880) & (df["Year"] <= 2020)]
 print(df_filtered.head())
 print(df_filtered.tail())
 
 # select column and put into a Python list
-ann_means = df_filtered['J-D']
+ann_means = df_filtered["J-D"]
 temp_anoms = ann_means.to_list()
-temp_anoms = [round(float(x)*100) for x in temp_anoms]
+temp_anoms = [round(float(x) * 100) for x in temp_anoms]
 ```
 
 In the line of code to read the file into a DataFrame object `df`, we specify `skiprows=1` to not read the first line which is just a description of the file contents. The second row with column names are automatically parsed and used to index the columns of the DataFrame. Then we filter the years from 1880 to 2020. A convenient way to inspect the values of a DataFrame and check our program is to use the `head()` and `tail()` functions to get the first five rows and the last five rows, and print them out.
@@ -76,9 +76,9 @@ To save a DataFrame out to a CSV file, use its `to_csv()` function. This functio
 We give an example of saving out to a CSV file by constructing a new DataFrame with two columns for the years and for the temperature anomalies, and outputting that to a CSV file. First, we make another list for the years, and use this to initialize a new DataFrame specifying the column names and the lists of values for the columns. Then we write the DataFrame out to a CSV file with a descriptive filename:
 
 ```python
-years = df_filtered['Year'].to_list()
-df_new = pd.DataFrame({'Year': years, 'J-D': temp_anoms})
-df_new.to_csv('temp_anoms_0.01C_1880-2020_J-D.csv', index=False)
+years = df_filtered["Year"].to_list()
+df_new = pd.DataFrame({"Year": years, "J-D": temp_anoms})
+df_new.to_csv("temp_anoms_0.01C_1880-2020_J-D.csv", index=False)
 ```
 
 ## 4.5 Small Multiple Visualization
@@ -96,24 +96,24 @@ The result is in Figure 4.1. From the subplots in the figure, we can clearly see
 ```python
 months = df.columns[1:13]
 df_months = df_filtered[months].astype(float)
-df_year = df_filtered['Year'].astype(int)
+df_year = df_filtered["Year"].astype(int)
 
 fig, axes = plt.subplots(4, 3)
 for i in range(4):
     for j in range(3):
         # raw data
-        temp_anoms_month = df_months[months[i*3 + j]]
+        temp_anoms_month = df_months[months[i * 3 + j]]
         # central moving average
-        smoothed = temp_anoms_month.rolling(window=5, center=True, min_periods=1).mean()
+        smoothed = temp_anoms_month.rolling(window=5, center=True, 
+                                            min_periods=1).mean()
 
-        axes[i, j].plot(df_year, temp_anoms_month, color='darkgray')
-        axes[i, j].plot(df_year, smoothed, color='black')
+        axes[i, j].plot(df_year, temp_anoms_month, color="darkgray")
+        axes[i, j].plot(df_year, smoothed, color="black")
 
         axes[i, j].set_ylim(-1.0, 1.5)
-
-        axes[i, j].set_title(months[i*3 + j])
+        axes[i, j].set_title(months[i * 3 + j])
         if j % 3 == 0:
-            axes[i, j].set_ylabel('Celsius')
+            axes[i, j].set_ylabel("Celsius")
 
 plt.tight_layout()  # adjust spacing
 plt.show()

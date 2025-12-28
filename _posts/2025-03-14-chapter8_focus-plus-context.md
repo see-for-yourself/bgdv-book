@@ -22,12 +22,12 @@ In order to make subplots with different sizes, the layout must be designed and 
 BBBBB
 ```
 
-which specifies a figure containing a rectangular subplot 'A' with some empty space '.' on the left and right, sitting above another rectangular subplot 'B' that is shorter and wider and spanning the width of the plot. Intuitively, one can see a blob of A's and a blob of B's, along with their shapes and placements.
+which specifies a figure containing a rectangular subplot "A" with some empty space "." on the left and right, sitting above another rectangular subplot "B" that is shorter and wider and spanning the width of the plot. Intuitively, one can see a blob of A's and a blob of B's, along with their shapes and placements.
 
 The corresponding Python code is:
 
 ```python
-fig, axes = plt.subplot_mosaic('.AAA.;.AAA.;BBBBB', figsize=(6, 4.5))
+fig, axes = plt.subplot_mosaic(".AAA.;.AAA.;BBBBB", figsize=(6, 4.5))
 
 plt.tight_layout()
 plt.show()
@@ -36,7 +36,7 @@ plt.show()
 ![Figure 8.2](/bgdv-book/assets/images/book/step1_create_mosaic_layout_0.4-0.6_v03-a_dpi-75.png)  
 _Figure 8.2. Creating a mosaic layout._
 
-The next step is to draw the connecting lines between the focus region 'A' and the context region 'B' as shown in Figure 8.3-left:
+The next step is to draw the connecting lines between the focus region "A" and the context region "B" as shown in Figure 8.3-left:
 
 ![Figure 8.3a](/bgdv-book/assets/images/book/step2_mosaic_draw_connecting_lines_0.4-0.6_v03-a_dpi-50.png)
 ![Figure 8.3b](/bgdv-book/assets/images/book/step3_mosaic_fill_patch_0.4-0.6_v03-a_dpi-50.png)  
@@ -49,16 +49,16 @@ import matplotlib.patches as patches
 
 def draw_connecting_line_subplots(fig, axesA, axesB, xyA, xyB):
     # draw a line by creating a ConnectionPatch
-    con = patches.ConnectionPatch(xyA=xyA, xyB=xyB, 
-                        coordsA='data', coordsB='data',
-                        axesA=axesA, axesB=axesB,
-                        color='gray', linestyle=':', linewidth=1)
-    
+    con = patches.ConnectionPatch(
+        xyA=xyA, xyB=xyB,
+        coordsA="data", coordsB="data",
+        axesA=axesA, axesB=axesB,
+        color="gray", linestyle=":", linewidth=1)
     # add the ConnectionPatch to the figure
     fig.add_artist(con)
 ```
 
-Then we use this function to put in the connecting lines between the focus subplot 'A' and context subplot 'B', by adding the following code under the line of code for creating a mosaic layout in the program above.
+Then we use this function to put in the connecting lines between the focus subplot "A" and context subplot "B", by adding the following code under the line of code for creating a mosaic layout in the program above.
 
 ```python
 # specify the focus patch boundaries
@@ -69,18 +69,18 @@ patch_bottom, patch_top = 0.0, 1.0
 context_bottom, context_top = 0.0, 1.0
 
 # set x and y limits on the focus subplot
-axes['A'].set_xlim(patch_left, patch_right)
-axes['A'].set_ylim(patch_bottom, patch_top)
+axes["A"].set_xlim(patch_left, patch_right)
+axes["A"].set_ylim(patch_bottom, patch_top)
 
 # draw connecting lines between the patch in context subplot 
 # and the focus subplot 
 xyA = (patch_left, patch_bottom)
 xyB = (patch_left, context_top)
-draw_connecting_line_subplots(fig, axes['A'], axes['B'], xyA, xyB)
+draw_connecting_line_subplots(fig, axes["A"], axes["B"], xyA, xyB)
     
 xyA = (patch_right, patch_bottom)
 xyB = (patch_right, context_top)
-draw_connecting_line_subplots(fig, axes['A'], axes['B'], xyA, xyB)
+draw_connecting_line_subplots(fig, axes["A"], axes["B"], xyA, xyB)
 ```
 
 The final step (before plotting any data) is to fill in the focus region in the context subplot to highlight it as shown in Figure 8.3-right. This uses a `patches.Rectangle` object. We add the following code under the code for drawing the connecting lines.
@@ -89,10 +89,10 @@ The final step (before plotting any data) is to fill in the focus region in the 
 # fill patch in context subplot
 xy = (patch_left, patch_bottom)
 width, height = (patch_right - patch_left), (patch_top - patch_bottom)
-rect = patches.Rectangle(xy, width, height, 
-                         edgecolor='gray', facecolor='lightgray')
+rect = patches.Rectangle(xy, width, height,
+                         edgecolor="gray", facecolor="lightgray")
 # add to the context axis
-axes['B'].add_patch(rect)
+axes["B"].add_patch(rect)
 ```
 
 Now the figure is ready for plotting the data in the subplots.
@@ -112,8 +112,8 @@ y_vals = temp_anoms  # from Chapter 1
 # compute the min and max
 xmin, xmax = min(x_vals), max(x_vals)
 ymin, ymax = min(y_vals), max(y_vals)
-print('xmin, xmax =', xmin, ',', xmax)
-print('ymin, ymax =', ymin, ',', ymax)
+print("xmin, xmax =", xmin, ",", xmax)
+print("ymin, ymax =", ymin, ",", ymax)
 ```
 
 Proceeding along, we modify the program for constructing a mosaic layout in the previous section to specify the limits of the focus and context regions:
@@ -138,9 +138,9 @@ Next, we add the code below to plot the data. We also make one enhancement (see 
 
 ```python
 # plot the data
-axesA.plot(x_vals, y_vals, color='black')
-axesB.plot(x_vals, y_vals, color='black', linewidth=0.75)
-axesB.tick_params(axis='both', which='major', labelsize=8)
+axesA.plot(x_vals, y_vals, color="black")
+axesB.plot(x_vals, y_vals, color="black", linewidth=0.75)
+axesB.tick_params(axis="both", which="major", labelsize=8)
 ```
 
 ## 8.3 Example: Koch Snowflake
@@ -167,7 +167,7 @@ def koch_curve(t, iterations, length):
         points.append(t.position())
     else:
         for angle in [60, -120, 60, 0]:
-            koch_curve(t, iterations - 1, length/3)
+            koch_curve(t, iterations - 1, length / 3)
             t.left(angle)
 
 def koch_snowflake(iterations, length):
@@ -184,7 +184,7 @@ t.mainloop()
 To make the focus-plus-context visualization of a Koch Snowflake in Figure 8.5, we use the mosaic layout:
 
 ```python
-fig, axes = plt.subplot_mosaic('AAAAA;.BBB.;.BBB.', figsize=(6, 4.5))
+fig, axes = plt.subplot_mosaic("AAAAA;.BBB.;.BBB.", figsize=(6, 4.5))
 ```
 
 The rest of the code is similar to the example with the Climate Data in the previous section, which we leave to the exercises.
