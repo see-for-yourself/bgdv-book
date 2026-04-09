@@ -4,7 +4,7 @@ title:  "Chapter 2: Plotting with Pyplot"
 date:   2024-10-19
 categories: book
 TOC_order: 2
-copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
+copyright: "Copyright © 2024-2026, P. L. Chiu. All Rights Reserved."
 ---
 
 Pyplot is a module in the Matplotlib visualization library that provides a simple application programming interface (API) for making basic plots. It has many functions and can fill most needs. There are other visualization libraries for Python, and some of these are built on top of or employ Matplotib [1], and familiarity with the basics in Pyplot and Matplotlib can be valuable when using these other libraries.
@@ -139,8 +139,20 @@ _Figure 2.4. A single figure containing multiple subplots._
 
 ## Exercises
 
-Ex.2.1. Try smoothing with different window lengths when computing the central moving average of Figure 2.2.
+Ex.2.1. Try smoothing with different window lengths when computing the central moving average of the temperature anomaly as in Figure 2.2.
 
-*Ex.2.2. Another widely used smoothing algorithm is _Lowess (locally weighted scatterplot smoothing)_. It is available in the statsmodels library for Python. Plot the temperature anomaly data using Lowess smoothing.
+Ex.2.2. Plot a variation of the CO2 data as in Figure 2.3 with the line segments smoothed.
 
-Ex.2.3. Plot a variation of the CO2 data as in Figure 2.3 with the line segments smoothed.
+*Ex.2.3. A person with seasonal allergies had noted the dates when a dose of medicine was taken:
+
+[2022-02-15, 2022-02-28, 2022-08-29, 2022-09-10, 2023-02-20,
+2023-03-03, 2023-06-14, 2023-07-02, 2023-07-12, 2023-08-02,
+2024-03-04, 2024-03-06, 2024-04-11, 2025-04-16, 2025-05-07,
+2025-05-22, 2025-06-24, 2025-09-27]
+
+Make a visualization of this data aggregated by month-day (so that the value for a month-day is the sum of the doses taken on that month-day irrespective of the year), and plot both the raw data and the smoothed data to obtain an image that looks like Figure 2.5. Doing smoothing helps to show the peak allergy times of the year.
+
+_Hint:_ For this sparse data, Gaussian smoothing works better than the central moving average. To do Gaussian smoothing, use the `rolling()` function with parameter `win_type="gaussian"`.
+
+![Figure 2.5](/bgdv-book/assets/images/book/allergy-medicine_usage_2022-2025_sum_rolling-gaussian-15_v05-a.png)  
+_Figure 2.5. A visualization of allergy medicine usage._
