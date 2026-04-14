@@ -27,7 +27,9 @@ For the cartographic boundary file, we use the file cb_2018_us_state_20m.shp (do
 
 The code for making a choropleth map of the state population is below. First, we load the CSV file for population data into a Pandas data frame, and then convert it into units of millions. Next, we load the cartographic boundary file into a GeoPandas data frame `states`. The population data frame is merged into the `states` data frame; the target columns of the two data frames contain the name of the states but with different column names: "NAME" and "state", respectively.
 
-Then the PyPlot figure is constructed and the `figsize` parameter is used to set the size with the desired aspect ratio. Using the `plot()` function of the GeoPandas data frame, we plot the data, specifying the axis of the figure. We also plot the legend with the colormap scale. We use a grayscale colormap (for making a color image, a color scale such as viridis can be substituted). The result is at the top of Figure 10.1.
+Then the PyPlot figure is constructed and the `figsize` parameter is used to set the size with the desired aspect ratio. Using the `plot()` function of the GeoPandas data frame, we plot the data, specifying the axis of the figure. We also plot the legend with the colormap scale. We use a grayscale colormap (for making a color image, a color scale such as viridis can be substituted). The result is at the top-left of Figure 10.1.
+
+This design allows the population size to be easily read off by visually matching a state's grayscale value to the corresponding value on a linear scale in the legend. However, it is harder to visually compare states; for example, the states around Wyoming appear to have similar grayscale values. One way to handle this is to transform to a log scale, which compresses the grayscale range for the more extreme values at the upper end and provides a wider range to visually distinguish the middle values. The code to do this is to add `norm=mpl.colors.LogNorm()` to the parameter list in the function call `states.plot()`. The result is at the top-right of Figure 10.1.
 
 ```python
 import pandas as pd
@@ -60,12 +62,12 @@ ax.set_axis_off()
 plt.show()
 ```
 
-![Figure 10.1a](/bgdv-book/assets/images/book/us-states_population_cmap-greys_v01-e_crop.png)  
+![Figure 10.1a](/bgdv-book/assets/images/book/us-states_population_cmap-greys_1x2_v01-f_crop.png)  
 
-![Figure 10.1b](/bgdv-book/assets/images/book/us-states_pop-density_cmap-greys_v01-e_crop.png)  
+![Figure 10.1b](/bgdv-book/assets/images/book/us-states_pop-density_cmap-greys_1x2_v01-f_crop.png)  
 _Figure 10.1. Population and population density of the U.S. states (2019). Data source: U.S. Census Bureau [1]._
 
-To make the **population density** choropleth map (Figure 10.1-bottom), only a minor modification is needed. The cartographic boundary file (cb_2018_us_state_20m.shp) also contains the land area for each state under the column "ALAND". This is in square meters, which we can convert to square miles by dividing by 2.59e6. The population density of a state is defined as its population divided by its land area. Doing this calculation and adding a new column "pop_density" to the GeoPandas data frame `states` can be done in one line of code:
+To make the **population density** choropleth maps (Figure 10.1-bottom), only a minor modification is needed. The cartographic boundary file (cb_2018_us_state_20m.shp) also contains the land area for each state under the column "ALAND". This is in square meters, which we can convert to square miles by dividing by 2.59e6. The population density of a state is defined as its population divided by its land area. Doing this calculation and adding a new column "pop_density" to the GeoPandas data frame `states` can be done in one line of code:
 
 ```python
 states["pop_density"] = ((states["population"] * 1000000) /
@@ -106,13 +108,15 @@ states.plot(
     cmap=cmap, linewidth=0.8, edgecolor="0.8")   
 ```
 
-The resulting image is shown in Figure 10.2. We can see the small northeast states such as Rhode Island much better compared to the simple map (Figure 10.1-bottom).
+The resulting image is shown in Figure 10.2. We can see the small northeast states such as Rhode Island much better compared to a simple map.
 
-![Figure 10.2](/bgdv-book/assets/images/book/us-states_pop-density_cmap-greys_clip_cutout_v02-e_crop.png)  
-_Figure 10.2. A focus-plus-context plot of the population density of the U.S. states (2019). Data source: U.S. Census Bureau [1]._
+![Figure 10.2](/bgdv-book/assets/images/book/us-states_pop-density_cmap-greys_FC_LogNorm_v02-e_crop.png)  
+_Figure 10.2. A focus-plus-context plot of the population density (per square mile, log scale) of the U.S. states (2019). Data source: U.S. Census Bureau [1]._
 
 ## Exercises
 
-Ex.10.1. Make a focus-plus-context choropleth map for the U.S. states that looks like the one in Figure 10.2.
+Ex.10.1. For the US states population and population density choropleth maps (Figure 10.1), try transforming with a square root scale instead of with a log scale.  _Hint: Add `norm=mpl.colors.PowerNorm(gamma=0.5)` instead of `norm=mpl.colors.LogNorm()` to the parameter list in the function call `states.plot()`._
 
-*Ex.10.2. Make choropleth maps for the U.S. states for the Covid-19 cases and deaths, and also for cases and deaths per capita. Downloaded the dataset files (time_series_covid19_confirmed_US.csv and time_series_covid19_deaths_US.csv) from the CSSE website: <https://coronavirus.jhu.edu/about/how-to-use-our-data>
+Ex.10.2. Make a focus-plus-context choropleth map for the U.S. states that looks like the one in Figure 10.2.
+
+*Ex.10.3. Make choropleth maps for the U.S. states for the Covid-19 cases and deaths, and also for cases and deaths per capita. Downloaded the dataset files (time_series_covid19_confirmed_US.csv and time_series_covid19_deaths_US.csv) from the CSSE website: <https://coronavirus.jhu.edu/about/how-to-use-our-data>
