@@ -4,6 +4,6 @@ title: About
 permalink: /about/
 ---
 
-_A Beginner's Guide to Data Visualization with Python_
+*A Beginner's Guide to Data Visualization with Python*
 
-Copyright © 2024-2025, P. L. Chiu. All Rights Reserved.
+Copyright © 2024-2026, P. L. Chiu. All Rights Reserved.
