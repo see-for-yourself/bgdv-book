@@ -23,7 +23,7 @@ copyright: "Copyright © 2024-2026, P. L. Chiu. All Rights Reserved."
 
 [7] GISTEMP Team, 2024: *GISS Surface Temperature Analysis (GISTEMP), version 4*. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
 
-## Chapter 2: Plotting with Matplotlib
+## Chapter 2: Plotting with Pyplot
 
 [1] Other visualization libraries for Python include Seaborn (which is built on top of Matplotib), SciPy plot modules plt and gplt (also uses Matplotib), etc.
 
