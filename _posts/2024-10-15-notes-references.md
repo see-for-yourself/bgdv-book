@@ -4,14 +4,14 @@ title:  "Notes and References"
 date:   2024-10-15
 categories: book
 TOC_order: 14
-copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
+copyright: "Copyright © 2024-2026, P. L. Chiu. All Rights Reserved."
 ---
 
 ## Chapter 1: Drawing with Python Turtle
 
 [1] "Turtle graphics". Python Documentation. <https://docs.python.org/3.7/library/turtle.html>
 
-[2] Seymour Papert. (1980, 2020). _Mindstorms: Children, Computers and Powerful Ideas_. The 2020 edition has a foreword by Mitchel Resnick, the founder of the Scratch programming language.
+[2] Seymour Papert. (1980, 2020). *Mindstorms: Children, Computers and Powerful Ideas*. The 2020 edition has a foreword by Mitchel Resnick, the founder of the Scratch programming language.
 
 [3] Johns Hopkins Center for Systems Science and Engineering (CSSE). Covid-19 datasets: <https://coronavirus.jhu.edu/about/how-to-use-our-data>
 
@@ -19,9 +19,9 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 [5] Hawkins, Ed. (2018). "Warming stripes". Climate Lab Book. <https://www.climate-lab-book.ac.uk/2018/warming-stripes/>
 
-[6] Hawkins, E., Fæhn, T., Fuglestvedt, J. (2019). The Climate Spiral demonstrates the power of sharing creative ideas. _Bulletin of the American Meteorological Society._ 100 (5): 753–756.
+[6] Hawkins, E., Fæhn, T., Fuglestvedt, J. (2019). The Climate Spiral demonstrates the power of sharing creative ideas. *Bulletin of the American Meteorological Society.* 100 (5): 753–756.
 
-[7] GISTEMP Team, 2024: _GISS Surface Temperature Analysis (GISTEMP), version 4_. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
+[7] GISTEMP Team, 2024: *GISS Surface Temperature Analysis (GISTEMP), version 4*. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
 
 ## Chapter 2: Plotting with Matplotlib
 
@@ -56,9 +56,9 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 ## Chapter 4: Data Files and Data Frames
 
-[1] GISTEMP Team, 2024: _GISS Surface Temperature Analysis (GISTEMP), version 4_. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
+[1] GISTEMP Team, 2024: *GISS Surface Temperature Analysis (GISTEMP), version 4*. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
 
-[2] Tufte, Edward (1990). _Envisioning Information_.
+[2] Tufte, Edward (1990). *Envisioning Information*.
 
 ## Chapter 5: Data Wrangling with Pandas
 
@@ -70,21 +70,21 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 ## Chapter 6: Drawing Spiral Plots with Turtle
 
-[1] Hawkins, E., Fæhn, T., Fuglestvedt, J. (2019). The Climate Spiral demonstrates the power of sharing creative ideas. _Bulletin of the American Meteorological Society._ 100 (5): 753–756.
+[1] Hawkins, E., Fæhn, T., Fuglestvedt, J. (2019). The Climate Spiral demonstrates the power of sharing creative ideas. *Bulletin of the American Meteorological Society.* 100 (5): 753–756.
 
-[2] GISTEMP Team, 2024: _GISS Surface Temperature Analysis (GISTEMP), version 4_. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
+[2] GISTEMP Team, 2024: *GISS Surface Temperature Analysis (GISTEMP), version 4*. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
 
 ## Chapter 7: Polar Plots with Pyplot
 
 [1] Johns Hopkins Center for Systems Science and Engineering (CSSE). Covid-19 datasets: <https://coronavirus.jhu.edu/about/how-to-use-our-data>
 
-## Chapter 8: Focus-plus-Context: Composite Plots
+## Chapter 8: Focus-plus-Context Views
 
-[1] GISTEMP Team, 2024: _GISS Surface Temperature Analysis (GISTEMP), version 4_. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
+[1] GISTEMP Team, 2024: *GISS Surface Temperature Analysis (GISTEMP), version 4*. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
 
 [2] NASA. World of Change: Global Temperatures. <https://science.nasa.gov/earth/earth-observatory/world-of-change/global-temperatures/>
 
-[3] Mandelbrot, Benoît B. (1982). _The Fractal Geometry of Nature._
+[3] Mandelbrot, Benoît B. (1982). *The Fractal Geometry of Nature.*
 
 ## Chapter 9: Geospatial Visualization with GeoPandas
 
