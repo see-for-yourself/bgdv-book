@@ -3,8 +3,8 @@ layout: post
 title:  "Appendix A"
 date:   2024-10-15
 categories: book
-TOC_order: 11
-copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
+TOC_order: 13
+copyright: "Copyright © 2024-2026, P. L. Chiu. All Rights Reserved."
 ---
 ## Installing Python
 
@@ -50,3 +50,13 @@ GeoPandas and Geodatasets can be installed directly using `pip`, or using `conda
 
 - GeoPandas: <https://geopandas.org/en/stable/>
 - Geodatasets: <https://github.com/geopandas/geodatasets>
+
+## Installing NetworkX
+
+NetworkX can be installed directly using `pip`:
+
+`pip install networkx`
+
+For more details, see:
+
+- NetworkX: <https://networkx.org/en/>

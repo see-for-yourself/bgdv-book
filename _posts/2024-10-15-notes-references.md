@@ -3,7 +3,7 @@ layout: post
 title:  "Notes and References"
 date:   2024-10-15
 categories: book
-TOC_order: 12
+TOC_order: 14
 copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 ---
 
@@ -68,7 +68,7 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 [3] NOAA Climate Data Online (CDO). <https://www.ncdc.noaa.gov/cdo-web>
 
-## Chapter 6: Drawing Polar Plots with Turtle
+## Chapter 6: Drawing Spiral Plots with Turtle
 
 [1] Hawkins, E., Fæhn, T., Fuglestvedt, J. (2019). The Climate Spiral demonstrates the power of sharing creative ideas. _Bulletin of the American Meteorological Society._ 100 (5): 753–756.
 
@@ -76,15 +76,7 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 
 ## Chapter 7: Polar Plots with Pyplot
 
-[1] Vogel, H. (1979). "A better way to construct the sunflower head". Mathematical Biosciences. 44 (3–4): 179–189.
-
-[2] Noone, Corey J.; Torrilhon, Manuel; Mitsos, Alexander (December 2011). "Heliostat Field Optimization: A New Computationally Efficient Model and Biomimetic Layout". Solar Energy. 86 (2): 792–803.
-
-[3] Hawkins, E., Fæhn, T., Fuglestvedt, J. (2019). The Climate Spiral demonstrates the power of sharing creative ideas. _Bulletin of the American Meteorological Society._ 100 (5): 753–756.
-
-[4] GISTEMP Team, 2024: _GISS Surface Temperature Analysis (GISTEMP), version 4_. NASA Goddard Institute for Space Studies. Dataset accessed 2022-09-06 at <https://data.giss.nasa.gov/gistemp/>.
-
-[5] Johns Hopkins Center for Systems Science and Engineering (CSSE). Covid-19 datasets: <https://coronavirus.jhu.edu/about/how-to-use-our-data>
+[1] Johns Hopkins Center for Systems Science and Engineering (CSSE). Covid-19 datasets: <https://coronavirus.jhu.edu/about/how-to-use-our-data>
 
 ## Chapter 8: Focus-plus-Context: Composite Plots
 
@@ -109,3 +101,14 @@ copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
 [1] United States Census Bureau. Cartographic Boundary Files - Shapefile. <https://www.census.gov/geographies/mapping-files/time-series/geo/carto-boundary-file.html>
 
 [2] United States Census Bureau. Explore Census Data. <https://data.census.gov/cedsci/>
+
+## Chapter 11: Graphs and Networkx
+
+[1] Networkx. <https://networkx.org/en/>
+
+[2] Stanford GraphBase. <https://www-cs-faculty.stanford.edu/~knuth/sgb.html> or <https://github.com/ascherer/sgb>
+
+## Chapter 12: Animation
+
+[1] NBA: RULE NO. 1: Court Dimensions - Equipment
+<https://official.nba.com/rule-no-1-court-dimensions-equipment/>

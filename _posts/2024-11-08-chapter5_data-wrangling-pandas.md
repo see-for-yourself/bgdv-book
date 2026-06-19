@@ -4,10 +4,10 @@ title:  "Chapter 5: Data Wrangling with Pandas"
 date:   2024-11-08
 categories: book
 TOC_order: 5
-copyright: "Copyright © 2024-2025, P. L. Chiu. All Rights Reserved."
+copyright: "Copyright © 2024-2026, P. L. Chiu. All Rights Reserved."
 ---
 
-In the previous chapter, we showed how to use Pandas to read CSV files into data frames, select rows and columns to get data values, and filtering the data based on specific criteria. Often the structure of the data is not in the form that we want to input into the functions for making the visualization. Sometimes there are missing or bad data values. Another common task is to aggregate data. Performing these kinds of data manipulation tasks is called _data wrangling_.
+In the previous chapter, we showed how to use Pandas to read CSV files into data frames, select rows and columns to get data values, and filtering the data based on specific criteria. Often the structure of the data is not in the form that we want to input into the functions for making the visualization. Sometimes there are missing or bad data values. Another common task is to aggregate data. Performing these kinds of data manipulation tasks is called *data wrangling*.
 
 In this chapter, we go into some useful techniques for data wrangling using Pandas. First, we briefly discuss missing or bad data, and fixing them with data imputation methods. As an example, we work with data from the Johns Hopkins CSSE Covid-19 dataset. Then we show how to aggregate data by grouping and computing their monthly means. Another basic task is restructuring data, and we show how to restructure the Covid-19 data for the US into a table similar to the structure of the NASA GISTEMP dataset encountered in earlier chapters.
 
@@ -17,7 +17,7 @@ It is not unusual for a dataset to have missing or incomplete data. With CSV fil
 
 The Pandas `read_csv()` function can handle missing values such as empty strings between commas and replaces them with the value NaN. For non-standard representations such as "***", it will read in the value as a string, and the program will need to detect and handle them if necessary.
 
-Using quick and simple data visualization techniques can also reveal them. For example, the Pyplot function `plot(x, y)` will show gaps in a plotted line at the places where y has missing values. More involved data checking can be performed by writing custom scripts to detect missing or incomplete values that may potentially occur within a certain dataset. Once the missing values have been identified, there are _data imputation_ methods that can be applied, such as using simple interpolation or more sophisticated statistical estimations.
+Using quick and simple data visualization techniques can also reveal them. For example, the Pyplot function `plot(x, y)` will show gaps in a plotted line at the places where y has missing values. More involved data checking can be performed by writing custom scripts to detect missing or incomplete values that may potentially occur within a certain dataset. Once the missing values have been identified, there are *data imputation* methods that can be applied, such as using simple interpolation or more sophisticated statistical estimations.
 
 Bad data often depends on the characteristics of a particular dataset. For instance, a sequence of cumulative values must be monotonically increasing, and a bad value will violate this criterion. Pandas Series has a property `is_monotonic_increasing` that checks this condition. Directly related to the cumulative values are the point values (which are just the differences between successive cumulative values), and the corresponding check is to test for negative values. This can be done in Pandas with the statement `any(series < 0)` that returns whether any element in the series is less than zero.
 
@@ -76,7 +76,7 @@ bad i = 1138, value = 1122134.0
 
 Furthermore, we can plot the neighborhoods around a bad value (Exercise 4.1). A plot of this is shown in Figure 5.1-top.
 
-We can now fix the bad values by performing interpolation on the data Series at the placeholders with value None, and save out the result to a CSV file for later use. The default interpolation method is linear, which preserves monotonicity.  The other methods available (such as quadratic, spline, etc.) may not preserve monotonicity; see Exercise 5.2. A plot of the interpolated values is shown in Figure 5.1-bottom.
+We can now fix the bad values by performing interpolation on the data Series at the placeholders with value None, and save out the result to a CSV file for later use. The default interpolation method is linear, which preserves monotonicity.  The other methods available (such as quadratic, spline, PCHIP, etc.) may not preserve monotonicity; see Exercise 5.2. A plot of the interpolated values is shown in Figure 5.1-bottom.
 
 ```python
 series = series.interpolate()
@@ -85,7 +85,7 @@ df.to_csv("US_replace-bad-vals_interpolate.csv", index=False)
 ```
 
 ![Figure 5.1](/bgdv-book/assets/images/book/US_plot_2x1_bad_interpolated_2022-06-30_v01-b.png)  
-_Figure 5.1. Neighborhood around the bad value at 2022-06-30. Top: original data. Bottom: interpolated after removing the bad value._
+*Figure 5.1. Neighborhood around the bad value at 2022-06-30. Top: original data. Bottom: interpolated after removing the bad value.*
 
 Next, we compute the point values from the cumulative values. The Pandas `diff()` function calculates the difference between elements, with the default using the elements in the previous row. The first row has no previous row, and first point value is set to NaN.
 
@@ -111,10 +111,10 @@ plt.plot(x, central_moving_average(y, window=7), color="black")
 ```
 
 ![Figure 5.2](/bgdv-book/assets/images/book/US_replace-bad-vals_interpolate_plot.png)  
-_Figure 5.2. Cumulative values._
+*Figure 5.2. Cumulative values.*
 
 ![Figure 5.3](/bgdv-book/assets/images/book/US_replace-bad-vals_interpolate_pointvals_plot_smooth.png)  
-_Figure 5.3. Point values in light gray, and the 7-day central moving average in black._
+*Figure 5.3. Point values in light gray, and the 7-day central moving average in black.*
 
 ## 5.3 Aggregating Data
 
@@ -163,7 +163,7 @@ for year, group in dfs_by_year.items():
     idx_year += 1
 ```
 
-After that, we create a new data frame with the 2D array values. For the column names, we can use the similar column names in the NASA GISTEMP dataset. Then we save this to a CSV file.
+After that, we create a new data frame with the 2D array values. For the column names, we can use the similar column names in the NASA GISTEMP dataset. Then we save this to a CSV file. We can also organize our data into directories for "cases/" and "deaths/".
 
 ```python
 months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -176,7 +176,7 @@ df_monthly_mean = pd.DataFrame(arr_2d, columns=col_names)
 df_monthly_mean["Year"] = df_monthly_mean["Year"].astype(int)
 
 # save to .csv file
-df_monthly_mean.to_csv("US_pointvals_monthly-mean.csv", index=False)  
+df_monthly_mean.to_csv("deaths/US_pointvals_monthly-mean.csv", index=False)  
 ```
 
 The resulting CSV file looks like:
@@ -194,20 +194,20 @@ We can plot the monthly mean values, using round dots to emphasize the discreten
 Note that this plot looks very similar to the plot of the 7-day central moving average in Figure 5.3. The main difference between smoothing with a central moving average and aggregating into months along with calculating their means is that the averages are calculated in the former case over a sliding window and in the latter case over disjoint groups (or "windows").
 
 ![Figure 5.4](/bgdv-book/assets/images/book/US_plot_pointvals_monthly-mean_deaths_v01-b.png)  
-_Figure 5.4. Monthly mean values._
+*Figure 5.4. Monthly mean values.*
 
 ---
 
 ## Exercises
 
-Ex.5.1. Write code to plot the neighborhood around the bad values (places of non-monotonicity) for the CSSE Covid-19 data for the US deaths and cases. Try a neighborhood size of 3 below and above the bad value, as those shown in Figure 5.1. _Hints:_ User `marker="o"` parameter in the `plot()` function to show the points discretely in the line graph, and use the function `tick_params()` to rotate the tick labels 45 degrees.
+Ex.5.1. Write code to plot the neighborhood around the bad values (places of non-monotonicity) for the CSSE Covid-19 data for the US deaths and cases. Try a neighborhood size of 3 below and above the bad value, as those shown in Figure 5.1. *Hints*: User `marker="o"` parameter in the `plot()` function to show the points discretely in the line graph, and use the function `tick_params()` to rotate the tick labels 45 degrees.
 
-*Ex.5.2. For the example with Covid-19 data in section 4.2, try other interpolation methods such as quadratic or spline (cubic of order 3). Do these give results that are monotonic?
+*Ex.5.2. For the example with Covid-19 data in section 4.2, try other interpolation methods such as quadratic or spline (cubic of order 3). Or a more advanced method like PCHIP (Piecewise Cubic Hermite Interpolating Polynomial). Which of these give results that are monotonic?
 
 Ex.5.3. For the Covid-19 data, plot the cumulative and the point values as shown in Figures 5.2 and 5.3, using code similar to that in Section 2.1 and 2.2, along with the code snippet in Section 5.2 for plotting the 7-day central moving average on top of the point values.
 
 Make another plot of the 31-day central moving average. How does this look compared to the monthly mean calculated by aggregating the data into monthly groups (Figure 5.4)?
 
-Ex.5.4. For the Covid-19 data, plot the monthly average values to obtain a plot that looks like Figure 5.4. _Hint:_ User `marker="o"` parameter in the `plot()` function to show the points discretely in the line graph.
+Ex.5.4. For the Covid-19 data, plot the monthly average values to obtain a plot that looks like Figure 5.4. *Hint*: User `marker="o"` parameter in the `plot()` function to show the points discretely in the line graph.
 
 Ex.5.5. Extreme rainfall events were visualized in Chapter 3 (Figure 3.5 and 3.6) for the city of Bengaluru (Bangalore). From the NOAA website [3], download rainfall data for a city of your choice and make visualization like Figure 3.5 and 3.6.
